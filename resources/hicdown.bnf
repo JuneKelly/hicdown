@@ -5,11 +5,9 @@ spc = #'\s'
 dnl = #'\n(\n)+'
 nl = !dnl #'\n'
 
-TextContent = (TextRun | Segment)+
+TextContent = (char+ | escape | nl | Segment)+
 
-TextRun = (textchar+ | escape | nl)+
-
-textchar = #'[^\n\[\]]'
+char = #'[^\n\[\]]'
 
 escape = '\\[' | '\\]'
 
