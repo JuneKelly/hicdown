@@ -47,7 +47,7 @@ user=> (pprint
 
 ## Installation
 
-Download from https://github.com/wtf.halt/hicdown
+Don't. 
 
 ## Usage
 
