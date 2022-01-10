@@ -1,14 +1,17 @@
 Document = (nl | (dnl)*) Block (dnl Block)* (nl | (dnl)*)
-Block = (TextRun | Segment)+
+Block = TextContent
 
 spc = #'\s'
 dnl = #'\n(\n)+'
 nl = !dnl #'\n'
 
-TextRun = (textchar | escape | nl)+
+TextContent = (TextRun | Segment)+
+
+TextRun = (textchar+ | escape | nl)+
+
 textchar = #'[^\n\[\]]'
 
 escape = '\\[' | '\\]'
 
-Segment = '[' tag spc+ TextRun+ ']'
+Segment = '[' tag spc+ TextContent+ ']'
 tag = #':[^\s]+'
