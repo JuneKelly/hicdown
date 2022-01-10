@@ -7,9 +7,15 @@ nl = !dnl #'\n'
 
 TextContent = (char+ | escape | nl | Segment)+
 
-char = #'[^\n\[\]]'
+char = #'[^\n\[\]{}]'
 
-escape = '\\[' | '\\]'
+escape = '\\[' | '\\]' | '\\{' | '\\}'
 
-Segment = '[' tag spc+ TextContent+ ']'
-tag = #':[^\s]+'
+Segment = '[' tag spc+ map? TextContent+ ']'
+
+tag = #':[^\s]*'
+
+map = '{' (key spc+ val)* '}'
+
+key = #':[^\s]+'
+val = #'[\w]+'
