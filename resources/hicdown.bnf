@@ -19,7 +19,7 @@ map = '{' spc* '}'
     | '{' spc* kvpair spc* '}'
     | '{' spc* kvpair (spc+ kvpair)* spc* '}'
 
-kvpair = key '=' val
+kvpair = key spc+ val
 
-key = #'[\w]+'
+key = #'[\w]+:'
 val = #'[\w]+'
