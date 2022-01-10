@@ -13,7 +13,7 @@ And this is another block, with a [:link {:to "example.com"} cool website].
 Parsing:
 
 ```
-Foo [:bar {baz: 1} quux]
+Foo [:bar {baz 1} quux]
 
 etc
 ```
@@ -32,7 +32,7 @@ becomes:
     "["
     [:tag ":bar"]
     " "
-    [:map "{" [:kvpair [:key "baz:"] " " [:val "1"]] "}"]
+    [:attrs "{" [:kvpair [:key ":baz"] " " [:val "1"]] "}"]
     [:TextContent " " "q" "u" "u" "x"]
     "]"]]]
  [:dnl "\n\n"]

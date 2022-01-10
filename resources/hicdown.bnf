@@ -11,15 +11,15 @@ TextContent = (char+ | escape | nl | Segment)+
 
 escape = '\\[' | '\\]' | '\\{' | '\\}'
 
-Segment = '[' tag spc+ map? TextContent+ ']'
+Segment = '[' tag spc+ attrs? TextContent+ ']'
 
 tag = #':[^\s]*'
 
-map = '{' spc* '}'
+attrs = '{' spc* '}'
     | '{' spc* kvpair spc* '}'
     | '{' spc* kvpair (spc+ kvpair)* spc* '}'
 
 kvpair = key spc+ val
 
-key = #'[\w]+:'
+key = #':[\w]+'
 val = #'[\w]+'
