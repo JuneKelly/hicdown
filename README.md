@@ -13,8 +13,8 @@ And this is another block, with a [:link {:to "example.com"} cool website].
 Parsing:
 
 ```
-user=> (pprint 
-  (parser "Hello there, this is [:bold some [:italic strong] text]."))
+user=> (pprint
+  (parser "Hello there, this is [:bold some [:italic {:id foo} strong] text here]."))
 [:Document
  [:Block
   [:TextContent
@@ -25,8 +25,14 @@ user=> (pprint
     " "
     [:TextContent
      "some "
-     [:Segment "[" [:tag ":italic"] " " [:TextContent "strong"] "]"]
-     " text"]
+     [:Segment
+      "["
+      [:tag ":italic"]
+      " "
+      [:Attrs "{" [:KVPair [:key ":id"] " " [:val "foo"]] "}"]
+      [:TextContent " strong"]
+      "]"]
+     " text here"]
     "]"]
    "."]]]
 ```
