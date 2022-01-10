@@ -10,6 +10,34 @@ Hello there, this is [:bold some strong text].
 And this is another block, with a [:link {:to "example.com"} cool website].
 ```
 
+Parsing:
+
+```
+Foo [:bar {baz: 1} quux]
+
+etc
+```
+
+becomes:
+
+```
+[:Document
+ [:Block
+  [:TextContent
+   "F"
+   "o"
+   "o"
+   " "
+   [:Segment
+    "["
+    [:tag ":bar"]
+    " "
+    [:map "{" [:kvpair [:key "baz:"] " " [:val "1"]] "}"]
+    [:TextContent " " "q" "u" "u" "x"]
+    "]"]]]
+ [:dnl "\n\n"]
+ [:Block [:TextContent "e" "t" "c"]]]
+```
 
 ## Installation
 
