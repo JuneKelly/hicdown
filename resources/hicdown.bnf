@@ -11,7 +11,7 @@ TextContent = (char+ | escape | nl | Segment)+
 
 escape = '\\[' | '\\]' | '\\{' | '\\}'
 
-Segment = '[' tag spc+ attrs? TextContent+ ']'
+Segment = '[' tag spc+ attrs? TextContent ']'
 
 tag = #':[^\s]*'
 
