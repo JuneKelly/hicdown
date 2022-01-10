@@ -5,9 +5,9 @@ Block = TextContent
 dnl = #'\n(\n)+'
 nl = !dnl #'\n'
 
-TextContent = (char+ | escape | nl | Segment)+
+TextContent = (charrun | escape | nl | Segment)+
 
-<char> = #'[^\n\[\]{}]'
+<charrun> = #'[^\n\[\]{}]+'
 
 escape = '\\[' | '\\]' | '\\{' | '\\}'
 

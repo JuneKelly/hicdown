@@ -13,31 +13,24 @@ And this is another block, with a [:link {:to "example.com"} cool website].
 Parsing:
 
 ```
-Foo [:bar {baz 1} quux]
-
-etc
-```
-
-becomes:
-
-```
+user=> (pprint 
+  (parser "Hello there, this is [:bold some [:italic strong] text]."))
 [:Document
  [:Block
   [:TextContent
-   "F"
-   "o"
-   "o"
-   " "
+   "Hello there, this is "
    [:Segment
     "["
-    [:tag ":bar"]
+    [:tag ":bold"]
     " "
-    [:attrs "{" [:kvpair [:key ":baz"] " " [:val "1"]] "}"]
-    [:TextContent " " "q" "u" "u" "x"]
-    "]"]]]
- [:dnl "\n\n"]
- [:Block [:TextContent "e" "t" "c"]]]
+    [:TextContent
+     "some "
+     [:Segment "[" [:tag ":italic"] " " [:TextContent "strong"] "]"]
+     " text"]
+    "]"]
+   "."]]]
 ```
+
 
 ## Installation
 
