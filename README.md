@@ -37,6 +37,13 @@ user=> (pprint
    "."]]]
 ```
 
+## Todo
+
+- [X] Basics
+- [ ] String values in attribute map
+- [ ] Tests
+- [ ] Verbatim segments
+
 
 ## Installation
 
