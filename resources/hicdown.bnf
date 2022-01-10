@@ -1,5 +1,5 @@
 Document = (nl | (dnl)*) Block (dnl Block)* (nl | (dnl)*)
-Block = (char | nl)+
-char = #'[^\n]'
+Block = (TextRun | nl)+
+TextRun = #'[^\n]+'
 dnl = #'\n(\n)+'
 nl = !dnl #'\n'
