@@ -15,7 +15,11 @@ Segment = '[' tag spc+ map? TextContent+ ']'
 
 tag = #':[^\s]*'
 
-map = '{' (key spc+ val)* '}'
+map = '{' spc* '}'
+    | '{' spc* kvpair spc* '}'
+    | '{' spc* kvpair (spc+ kvpair)* spc* '}'
 
-key = #':[^\s]+'
+kvpair = key '=' val
+
+key = #'[\w]+'
 val = #'[\w]+'
