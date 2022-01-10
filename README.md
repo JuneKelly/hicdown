@@ -1,6 +1,15 @@
 # hicdown
 
-FIXME: my new application.
+A fun little parser, embedding a hiccup-like syntax in plain text.
+
+Example:
+
+```
+Hello there, this is [:bold some strong text].
+
+And this is another block, with a [:link {:to "example.com"} cool website].
+```
+
 
 ## Installation
 
