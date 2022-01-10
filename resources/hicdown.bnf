@@ -22,4 +22,4 @@ Attrs = '{' spc* '}'
 KVPair = key spc+ val
 
 key = #':[\w]+'
-val = #'[\w]+'
+val = #'[^\s}]+'
