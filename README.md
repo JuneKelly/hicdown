@@ -7,7 +7,7 @@ Example:
 ```
 Hello there, this is [:bold some strong text].
 
-And this is another block, with a [:link {:to "example.com"} cool website].
+And this is another block, with a [:link {:to example.com} cool website].
 ```
 
 Parsing:
