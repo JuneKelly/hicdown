@@ -1,5 +1,10 @@
 (ns wtf.halt.hicdown
+  (:require [instaparse.core :as insta]
+              [clojure.java.io :as io])
   (:gen-class))
+
+(def parser
+  (insta/parser (io/resource "hicdown.bnf")))
 
 (defn greet
   "Callable entry point to the application."
