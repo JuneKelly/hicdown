@@ -42,6 +42,7 @@ user=> (pprint
 - [X] Basics
 - [x] Remove leading and trailing newlines from parse tree
 - [ ] String values in attribute map
+- [ ] Comments
 - [ ] Tests
 - [ ] Verbatim segments
 

@@ -16,16 +16,16 @@ escape = '\\[' | '\\]' | '\\{' | '\\}'
 
 (* A segment is enclosed in square brackets, with a tag and optional attr map,
    and contains a sequence of plain text and/or other segments *)
-Segment = '[' tag spc+ Attrs? TextContent ']'
+Segment = <'['> tag <spc+> Attrs? TextContent? <']'>
 
 tag = #':[^\s]*'
 
 (* An attribute map is enclosed in curly braces, and consists of key-value pairs *)
-Attrs = '{' spc* '}'
-    | '{' spc* KVPair spc* '}'
-    | '{' spc* KVPair (spc+ KVPair)* spc* '}'
+Attrs = <'{'> spc* <'}'>
+    | <'{'> spc* KVPair spc* <'}'>
+    | <'{'> spc* KVPair (<spc+> KVPair)* <spc*> <'}'>
 
-KVPair = key spc+ val
+KVPair = key <spc+> val
 
 key = #':[\w]+'
 val = #'[^\s}]+'

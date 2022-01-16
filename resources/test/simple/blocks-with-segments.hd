@@ -1,0 +1,5 @@
+Test [:foo bar] baz.
+
+Test [:foo {:a b} bar] baz.
+
+Test [:foo {:a b}] baz.

@@ -40,4 +40,25 @@
             [:Block [:TextContent
                      "Six seven"
                      [:nl "\n"]
-                     "eight nine."]]])))
+                     "eight nine."]]])
+    (parses "simple/blocks-with-segments.hd"
+            [:Document
+             [:Block [:TextContent
+                      "Test "
+                      [:Segment [:tag ":foo"]
+                       [:TextContent "bar"]]
+                      " baz."]]
+             [:Block [:TextContent
+                      "Test "
+                      [:Segment
+                       [:tag ":foo"]
+                       [:Attrs [:KVPair [:key ":a"] [:val "b"]]]
+                       [:TextContent " bar"]]
+                      " baz."]]
+             [:Block [:TextContent
+                      "Test "
+                      [:Segment
+                       [:tag ":foo"]
+                       [:Attrs [:KVPair [:key ":a"] [:val "b"]]]]
+                      " baz."]]
+             ])))
