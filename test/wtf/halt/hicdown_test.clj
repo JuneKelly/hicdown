@@ -4,6 +4,7 @@
             [clojure.string :as string]
             [wtf.halt.hicdown :as hicdown]))
 
+;; Helpers
 (defn test-file [path]
   (-> (io/resource (str "test/" path))
       (slurp)
@@ -13,8 +14,13 @@
   (-> (test-file path)
       (hicdown/parser)))
 
+(defn parses [path expected-data]
+  (is (= (parse-test-file path)
+         expected-data)))
+
+;; Tests
 (deftest simple-document
   (testing "a simple document"
-    (is (= (parse-test-file "simple.hd")
+    (parses "simple.hd"
            [:Document
-            [:Block [:TextContent "Hello"]]]))))
+            [:Block [:TextContent "Hello"]]])))
