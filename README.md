@@ -47,6 +47,7 @@ user=> (pprint
 - [ ] Remove extra spaces from Text runs, make it consistent
 - [ ] String values in attribute map
 - [ ] Comments
+- [ ] Look into how we can use instaparse metadata and transforms
 - [ ] Verbatim segments
 
 
