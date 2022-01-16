@@ -23,16 +23,19 @@
 ;; Tests
 (deftest simple-document
   (testing "Simple documents"
+
     (test-parse "simple/one-block.hd"
            [:Document
             [:Block
              "Hello this is a simple"
              [:nl]
              "block of text"]])
+
     (test-parse "simple/one-block-with-leading-blank-lines.hd"
            [:Document
             [:Block
              "Hello"]])
+
     (test-parse "simple/three-blocks.hd"
            [:Document
             [:Block
@@ -45,6 +48,7 @@
              "Six seven"
              [:nl]
              "eight nine."]])
+
     (test-parse "simple/blocks-with-segments.hd"
             [:Document
              [:Block
@@ -67,12 +71,14 @@
               " baz."]]))
 
   (testing "Segments"
+
     (test-parse "segments/empty.hd"
             [:Document
              [:Block
               "Test "
               [:Segment [:tag ":a"]]
               " foo."]])
+
     (test-parse "segments/empty-with-attrs.hd"
             [:Document
              [:Block
@@ -80,6 +86,7 @@
               [:Segment [:tag ":a"]
                [:Attrs [:KVPair [:key ":x"] [:val "y"]]]]
               " foo."]])
+
     (test-parse "segments/with-content-text.hd"
             [:Document
              [:Block
@@ -87,6 +94,7 @@
               [:Segment [:tag ":a"]
                "foo"]
               " bar."]])
+
     (test-parse "segments/with-content-text-and-attrs.hd"
             [:Document
              [:Block
@@ -95,6 +103,7 @@
                [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
                " foo"] ;; Note the extra space here, should be parsed out?
               " bar."]])
+
     (test-parse "segments/spanning-newline.hd"
                 [:Document
                  [:Block
