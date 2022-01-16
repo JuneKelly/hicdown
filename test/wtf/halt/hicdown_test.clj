@@ -95,5 +95,14 @@
                [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
                " foo"] ;; Note the extra space here, should be parsed out?
               " bar."]])
-
+    (test-parse "segments/spanning-newline.hd"
+                [:Document
+                 [:Block
+                  "Test "
+                  [:Segment [:tag ":a"]
+                   [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
+                   " foo"
+                   [:nl]
+                   "bar baz"]
+                  " quux."]])
     ))
