@@ -60,5 +60,36 @@
                       [:Segment
                        [:tag ":foo"]
                        [:Attrs [:KVPair [:key ":a"] [:val "b"]]]]
-                      " baz."]]
-             ])))
+                      " baz."]]]))
+
+  (testing "Segments"
+    (parses "segments/empty.hd"
+            [:Document
+             [:Block [:TextContent
+                      "Test "
+                      [:Segment [:tag ":a"]]
+                      " foo."]]])
+    (parses "segments/empty-with-attrs.hd"
+            [:Document
+             [:Block [:TextContent
+                      "Test "
+                      [:Segment [:tag ":a"]
+                       [:Attrs [:KVPair [:key ":x"] [:val "y"]]]]
+                      " foo."]]])
+    (parses "segments/with-content-text.hd"
+            [:Document
+             [:Block [:TextContent
+                      "Test "
+                      [:Segment [:tag ":a"]
+                       [:TextContent "foo"]]
+                      " bar."]]])
+    (parses "segments/with-content-text-and-attrs.hd"
+            [:Document
+             [:Block [:TextContent
+                      "Test "
+                      [:Segment [:tag ":a"]
+                       [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
+                       [:TextContent " foo"]] ;; Note the extra space here, should be parsed out?
+                      " bar."]]])
+
+    ))
