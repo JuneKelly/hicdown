@@ -16,20 +16,24 @@
   (is (= (parse-test-file path)
          expected-data)))
 
+(defn test-parse [path expected-data]
+  (testing (str "Parse " path)
+    (parses path expected-data)))
+
 ;; Tests
 (deftest simple-document
   (testing "Simple documents"
-    (parses "simple/one-block.hd"
+    (test-parse "simple/one-block.hd"
            [:Document
             [:Block [:TextContent
                      "Hello this is a simple"
                      [:nl "\n"]
                      "block of text"]]])
-    (parses "simple/one-block-with-leading-blank-lines.hd"
+    (test-parse "simple/one-block-with-leading-blank-lines.hd"
            [:Document
             [:Block [:TextContent
                      "Hello"]]])
-    (parses "simple/three-blocks.hd"
+    (test-parse "simple/three-blocks.hd"
            [:Document
             [:Block [:TextContent
                      "Test one."]]
@@ -41,7 +45,7 @@
                      "Six seven"
                      [:nl "\n"]
                      "eight nine."]]])
-    (parses "simple/blocks-with-segments.hd"
+    (test-parse "simple/blocks-with-segments.hd"
             [:Document
              [:Block [:TextContent
                       "Test "
@@ -63,27 +67,27 @@
                       " baz."]]]))
 
   (testing "Segments"
-    (parses "segments/empty.hd"
+    (test-parse "segments/empty.hd"
             [:Document
              [:Block [:TextContent
                       "Test "
                       [:Segment [:tag ":a"]]
                       " foo."]]])
-    (parses "segments/empty-with-attrs.hd"
+    (test-parse "segments/empty-with-attrs.hd"
             [:Document
              [:Block [:TextContent
                       "Test "
                       [:Segment [:tag ":a"]
                        [:Attrs [:KVPair [:key ":x"] [:val "y"]]]]
                       " foo."]]])
-    (parses "segments/with-content-text.hd"
+    (test-parse "segments/with-content-text.hd"
             [:Document
              [:Block [:TextContent
                       "Test "
                       [:Segment [:tag ":a"]
                        [:TextContent "foo"]]
                       " bar."]]])
-    (parses "segments/with-content-text-and-attrs.hd"
+    (test-parse "segments/with-content-text-and-attrs.hd"
             [:Document
              [:Block [:TextContent
                       "Test "
