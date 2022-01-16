@@ -1,14 +1,12 @@
 (ns wtf.halt.hicdown-test
   (:require [clojure.test :refer :all]
             [clojure.java.io :as io]
-            [clojure.string :as string]
             [wtf.halt.hicdown :as hicdown]))
 
 ;; Helpers
 (defn test-file [path]
   (-> (io/resource (str "test/" path))
-      (slurp)
-      (string/trim)))
+      (slurp)))
 
 (defn parse-test-file [path]
   (-> (test-file path)
