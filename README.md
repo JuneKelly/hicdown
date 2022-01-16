@@ -40,6 +40,7 @@ user=> (pprint
 ## Todo
 
 - [X] Basics
+- [ ] Remove leading and trailing newlines from parse tree
 - [ ] String values in attribute map
 - [ ] Tests
 - [ ] Verbatim segments
