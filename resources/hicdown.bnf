@@ -1,6 +1,7 @@
 (* A document is a sequence of blocks, separated by blank lines *)
 Document = <(nl | (dnl)*)> Block (<dnl> Block)* <(nl | (dnl)*)>
 
+(* Spaces *)
 <spc> = #'\s'
 
 (* Mandatory spaces *)
@@ -18,7 +19,7 @@ nl = !dnl #'\n'
 (* A block consists of plain text, and/or segments *)
 Block = TextContent
 
-TextContent = (charrun | escape | nl | Segment)+
+<TextContent> = (charrun | escape | nl | Segment)+
 
 escape = '\\[' | '\\]' | '\\{' | '\\}'
 

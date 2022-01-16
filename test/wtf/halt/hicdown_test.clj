@@ -25,75 +25,75 @@
   (testing "Simple documents"
     (test-parse "simple/one-block.hd"
            [:Document
-            [:Block [:TextContent
-                     "Hello this is a simple"
-                     [:nl "\n"]
-                     "block of text"]]])
+            [:Block
+             "Hello this is a simple"
+             [:nl "\n"]
+             "block of text"]])
     (test-parse "simple/one-block-with-leading-blank-lines.hd"
            [:Document
-            [:Block [:TextContent
-                     "Hello"]]])
+            [:Block
+             "Hello"]])
     (test-parse "simple/three-blocks.hd"
            [:Document
-            [:Block [:TextContent
-                     "Test one."]]
-            [:Block [:TextContent
-                     "Two three"
-                     [:nl "\n"]
-                     "four five."]]
-            [:Block [:TextContent
-                     "Six seven"
-                     [:nl "\n"]
-                     "eight nine."]]])
+            [:Block
+             "Test one."]
+            [:Block
+             "Two three"
+             [:nl "\n"]
+             "four five."]
+            [:Block
+             "Six seven"
+             [:nl "\n"]
+             "eight nine."]])
     (test-parse "simple/blocks-with-segments.hd"
             [:Document
-             [:Block [:TextContent
-                      "Test "
-                      [:Segment [:tag ":foo"]
-                       [:TextContent "bar"]]
-                      " baz."]]
-             [:Block [:TextContent
-                      "Test "
-                      [:Segment
-                       [:tag ":foo"]
-                       [:Attrs [:KVPair [:key ":a"] [:val "b"]]]
-                       [:TextContent " bar"]]
-                      " baz."]]
-             [:Block [:TextContent
-                      "Test "
-                      [:Segment
-                       [:tag ":foo"]
-                       [:Attrs [:KVPair [:key ":a"] [:val "b"]]]]
-                      " baz."]]]))
+             [:Block
+              "Test "
+              [:Segment [:tag ":foo"]
+               "bar"]
+              " baz."]
+             [:Block
+              "Test "
+              [:Segment
+               [:tag ":foo"]
+               [:Attrs [:KVPair [:key ":a"] [:val "b"]]]
+               " bar"]
+              " baz."]
+             [:Block
+              "Test "
+              [:Segment
+               [:tag ":foo"]
+               [:Attrs [:KVPair [:key ":a"] [:val "b"]]]]
+              " baz."]]))
 
   (testing "Segments"
     (test-parse "segments/empty.hd"
             [:Document
-             [:Block [:TextContent
-                      "Test "
-                      [:Segment [:tag ":a"]]
-                      " foo."]]])
+             [:Block
+              "Test "
+              [:Segment [:tag ":a"]]
+              " foo."]])
     (test-parse "segments/empty-with-attrs.hd"
             [:Document
-             [:Block [:TextContent
-                      "Test "
-                      [:Segment [:tag ":a"]
-                       [:Attrs [:KVPair [:key ":x"] [:val "y"]]]]
-                      " foo."]]])
+             [:Block
+              "Test "
+              [:Segment [:tag ":a"]
+               [:Attrs [:KVPair [:key ":x"] [:val "y"]]]]
+              " foo."]])
     (test-parse "segments/with-content-text.hd"
             [:Document
-             [:Block [:TextContent
-                      "Test "
-                      [:Segment [:tag ":a"]
-                       [:TextContent "foo"]]
-                      " bar."]]])
+             [:Block
+              "Test "
+              [:Segment [:tag ":a"]
+               "foo"]
+              " bar."]])
     (test-parse "segments/with-content-text-and-attrs.hd"
             [:Document
-             [:Block [:TextContent
-                      "Test "
-                      [:Segment [:tag ":a"]
-                       [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
-                       [:TextContent " foo"]] ;; Note the extra space here, should be parsed out?
-                      " bar."]]])
+             [:Block
+              "Test "
+              [:Segment [:tag ":a"]
+               [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
+               " foo"] ;; Note the extra space here, should be parsed out?
+              " bar."]])
 
     ))
