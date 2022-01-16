@@ -18,10 +18,26 @@
 
 ;; Tests
 (deftest simple-document
-  (testing "a simple document"
-    (parses "simple.hd"
+  (testing "Simple documents"
+    (parses "simple/one-block.hd"
            [:Document
             [:Block [:TextContent
                      "Hello this is a simple"
                      [:nl "\n"]
-                     "block of text"]]])))
+                     "block of text"]]])
+    (parses "simple/one-block-with-leading-blank-lines.hd"
+           [:Document
+            [:Block [:TextContent
+                     "Hello"]]])
+    (parses "simple/three-blocks.hd"
+           [:Document
+            [:Block [:TextContent
+                     "Test one."]]
+            [:Block [:TextContent
+                     "Two three"
+                     [:nl "\n"]
+                     "four five."]]
+            [:Block [:TextContent
+                     "Six seven"
+                     [:nl "\n"]
+                     "eight nine."]]])))
