@@ -1,6 +1,7 @@
 (ns wtf.halt.hicdown-test
   (:require [clojure.test :refer :all]
             [clojure.java.io :as io]
+            [clojure.string :as str]
             [wtf.halt.hicdown :as hicdown]))
 
 ;; Helpers
@@ -20,98 +21,140 @@
   (testing (str "Parse " path)
     (parses path expected-data)))
 
+(defn s [string]
+  (str/split string #""))
 ;; Tests
 (deftest simple-document
   (testing "Simple documents"
 
-    (test-parse "simple/one-block.hd"
-           [:Document
-            [:Block
-             "Hello this is a simple"
-             [:nl]
-             "block of text"]])
+    (test-parse
+     "simple/one-block.hd"
+     `[:Document
+       [:Block
+        ~@(s "Hello this is a simple")
+        [:nl]
+        ~@(s "block of text")]])
 
-    (test-parse "simple/one-block-with-leading-blank-lines.hd"
-           [:Document
-            [:Block
-             "Hello"]])
+    (test-parse
+     "simple/one-block-with-leading-blank-lines.hd"
+     `[:Document
+       [:Block
+        ~@(s "Hello")]])
 
-    (test-parse "simple/three-blocks.hd"
-           [:Document
-            [:Block
-             "Test one."]
-            [:Block
-             "Two three"
-             [:nl]
-             "four five."]
-            [:Block
-             "Six seven"
-             [:nl]
-             "eight nine."]])
+    (test-parse
+     "simple/three-blocks.hd"
+     `[:Document
+       [:Block
+        ~@(s "Test one.")]
+       [:Block
+        ~@(s "Two three")
+        [:nl]
+        ~@(s "four five.")]
+       [:Block
+        ~@(s "Six seven")
+        [:nl]
+        ~@(s "eight nine.")]])
 
-    (test-parse "simple/blocks-with-segments.hd"
-            [:Document
-             [:Block
-              "Test "
-              [:Segment [:tag ":foo"]
-               "bar"]
-              " baz."]
-             [:Block
-              "Test "
-              [:Segment
-               [:tag ":foo"]
-               [:Attrs [:KVPair [:key ":a"] [:val "b"]]]
-               " bar"]
-              " baz."]
-             [:Block
-              "Test "
-              [:Segment
-               [:tag ":foo"]
-               [:Attrs [:KVPair [:key ":a"] [:val "b"]]]]
-              " baz."]]))
+    (test-parse
+     "simple/blocks-with-segments.hd"
+     `[:Document
+       [:Block
+        ~@(s "Test ")
+        [:Segment [:tag ":foo"]
+         ~@(s "bar")]
+        ~@(s " baz.")]
+       [:Block
+        ~@(s "Test ")
+        [:Segment
+         [:tag ":foo"]
+         [:Attrs [:KVPair [:key ":a"] [:val "b"]]]
+         ~@(s " bar")]
+        ~@(s " baz.")]
+       [:Block
+        ~@(s "Test ")
+        [:Segment
+         [:tag ":foo"]
+         [:Attrs [:KVPair [:key ":a"] [:val "b"]]]]
+        ~@(s " baz.")]]))
 
   (testing "Segments"
 
-    (test-parse "segments/empty.hd"
-            [:Document
-             [:Block
-              "Test "
-              [:Segment [:tag ":a"]]
-              " foo."]])
+    (test-parse
+     "segments/empty.hd"
+     `[:Document
+       [:Block
+        ~@(s "Test ")
+        [:Segment [:tag ":a"]]
+        ~@(s " foo.")]])
 
-    (test-parse "segments/empty-with-attrs.hd"
-            [:Document
-             [:Block
-              "Test "
-              [:Segment [:tag ":a"]
-               [:Attrs [:KVPair [:key ":x"] [:val "y"]]]]
-              " foo."]])
+    (test-parse
+     "segments/empty-with-attrs.hd"
+     `[:Document
+       [:Block
+        ~@(s "Test ")
+        [:Segment [:tag ":a"]
+         [:Attrs [:KVPair [:key ":x"] [:val "y"]]]]
+        ~@(s " foo.")]])
 
-    (test-parse "segments/with-content-text.hd"
-            [:Document
-             [:Block
-              "Test "
-              [:Segment [:tag ":a"]
-               "foo"]
-              " bar."]])
+    (test-parse
+     "segments/with-content-text.hd"
+     `[:Document
+       [:Block
+        ~@(s "Test ")
+        [:Segment [:tag ":a"]
+         ~@(s "foo")]
+        ~@(s " bar.")]])
 
-    (test-parse "segments/with-content-text-and-attrs.hd"
-            [:Document
-             [:Block
-              "Test "
-              [:Segment [:tag ":a"]
-               [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
-               " foo"] ;; Note the extra space here, should be parsed out?
-              " bar."]])
+    (test-parse
+     "segments/with-content-text-and-attrs.hd"
+     `[:Document
+       [:Block
+        ~@(s "Test ")
+        [:Segment [:tag ":a"]
+         [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
+         ~@(s " foo")] ;; Note the extra space here, should be parsed out?
+        ~@(s " bar.")]])
 
-    (test-parse "segments/spanning-newline.hd"
-                [:Document
-                 [:Block
-                  "Test "
-                  [:Segment [:tag ":a"]
-                   [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
-                   " foo"
-                   [:nl]
-                   "bar baz"]
-                  " quux."]])
+    (test-parse
+     "segments/spanning-newline.hd"
+     `[:Document
+       [:Block
+        ~@(s "Test ")
+        [:Segment [:tag ":a"]
+         [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
+         ~@(s " foo")
+         [:nl]
+         ~@(s "bar baz")]
+        ~@(s " quux.")]])
+
+    (test-parse
+     "segments/with-escapes.hd"
+     `[:Document
+       [:Block
+        ~@(s "Test ")
+        "\\["
+        ~@(s " something ")
+        "\\]"
+        ~@(s " here.")]
+       [:Block
+        ~@(s "And ")
+        "\\{"
+        ~@(s " something else ")
+        "\\}"
+        ~@(s " here.")]])
+
+    (test-parse
+     "segments/with-escapes-and-segments.hd"
+     `[:Document
+       [:Block
+        ~@(s "Test ")
+        [:Segment [:tag ":a"]
+         [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
+         ~@(s " foo")]
+        ~@(s " bar ")
+        "\\["
+        ~@(s " baz ")
+        "\\]"
+        ~@(s ".")]
+       ])
     ))

@@ -19,11 +19,11 @@ nl = !dnl <#'\n'>
 (* A block consists of plain text, and/or segments *)
 Block = TextContent
 
-<TextContent> = (charrun | escape | nl | Segment)+
+<TextContent> = (textchar | escape | nl | Segment)+
 
-escape = '\\[' | '\\]' | '\\{' | '\\}'
+<escape> = '\\[' | '\\]' | '\\{' | '\\}'
 
-<charrun> = #'[^\n\[\]{}]+'
+<textchar> = #'[^\n\[\]{}]'
 
 (* A segment is enclosed in square brackets, with a tag and optional attr map,
    and contains a sequence of plain text and/or other segments *)

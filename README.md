@@ -42,8 +42,9 @@ user=> (pprint
 - [X] Basics
 - [x] Remove leading and trailing newlines from parse tree
 - [x] Tests
-- [ ] Switch to capturing individual characters in text run
-- [ ] Get escape characters right
+- [x] Switch to capturing individual characters in text run
+- [x] Get escape characters right
+  - [x] Should web hide these nodes in the tree?
 - [ ] Remove extra spaces from Text runs, make it consistent
 - [ ] String values in attribute map
 - [ ] Comments
