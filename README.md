@@ -44,7 +44,7 @@ user=> (pprint
 - [ ] Remove extra spaces from Text runs, make it consistent
 - [ ] String values in attribute map
 - [ ] Comments
-- [ ] Tests
+- [x] Tests
 - [ ] Verbatim segments
 
 
