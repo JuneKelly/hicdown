@@ -23,4 +23,7 @@
   (testing "a simple document"
     (parses "simple.hd"
            [:Document
-            [:Block [:TextContent "Hello"]]])))
+            [:Block [:TextContent
+                     "Hello this is a simple"
+                     [:nl "\n"]
+                     "block of text"]]])))
