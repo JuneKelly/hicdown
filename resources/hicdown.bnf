@@ -2,7 +2,7 @@
 Document = <(nl | (dnl)*)> Block (<dnl> Block)* <(nl | (dnl)*)>
 
 (* Spaces *)
-<spc> = #'\s'
+<spc> = <#'\s'>
 
 (* Mandatory spaces *)
 <mspc> = <spc+>
@@ -14,7 +14,7 @@ Document = <(nl | (dnl)*)> Block (<dnl> Block)* <(nl | (dnl)*)>
 dnl = #'\n(\n)+'
 
 (* Single newlines *)
-nl = !dnl #'\n'
+nl = !dnl <#'\n'>
 
 (* A block consists of plain text, and/or segments *)
 Block = TextContent

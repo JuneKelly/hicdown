@@ -27,7 +27,7 @@
            [:Document
             [:Block
              "Hello this is a simple"
-             [:nl "\n"]
+             [:nl]
              "block of text"]])
     (test-parse "simple/one-block-with-leading-blank-lines.hd"
            [:Document
@@ -39,11 +39,11 @@
              "Test one."]
             [:Block
              "Two three"
-             [:nl "\n"]
+             [:nl]
              "four five."]
             [:Block
              "Six seven"
-             [:nl "\n"]
+             [:nl]
              "eight nine."]])
     (test-parse "simple/blocks-with-segments.hd"
             [:Document
