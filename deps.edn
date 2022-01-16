@@ -9,6 +9,8 @@
   :build {:deps {io.github.seancorfield/build-clj
                  {:git/tag "v0.4.0" :git/sha "54e39ae"}}
           :ns-default build}
+  :format {:deps {cljfmt/cljfmt {:mvn/version "0.8.0"}}
+           :main-opts ["-m" "cljfmt.main"]}
   :test {:extra-paths ["test"]
          :extra-deps {org.clojure/test.check {:mvn/version "1.1.0"}
                       io.github.cognitect-labs/test-runner
