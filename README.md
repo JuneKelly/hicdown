@@ -41,10 +41,11 @@ user=> (pprint
 
 - [X] Basics
 - [x] Remove leading and trailing newlines from parse tree
+- [x] Tests
+- [ ] Get escape characters right
 - [ ] Remove extra spaces from Text runs, make it consistent
 - [ ] String values in attribute map
 - [ ] Comments
-- [x] Tests
 - [ ] Verbatim segments
 
 
