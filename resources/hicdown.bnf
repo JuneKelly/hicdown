@@ -1,20 +1,26 @@
+(* A document is a sequence of blocks, separated by blank lines *)
 Document = <(nl | (dnl)*)> Block (<dnl> Block)* <(nl | (dnl)*)>
-Block = TextContent
 
 <spc> = #'\s'
 dnl = #'\n(\n)+'
 nl = !dnl #'\n'
 
-TextContent = (charrun | escape | nl | Segment)+
+(* A block consists of plain text, and/or segments *)
+Block = TextContent
 
-<charrun> = #'[^\n\[\]{}]+'
+TextContent = (charrun | escape | nl | Segment)+
 
 escape = '\\[' | '\\]' | '\\{' | '\\}'
 
+<charrun> = #'[^\n\[\]{}]+'
+
+(* A segment is enclosed in square brackets, with a tag and optional attr map,
+   and contains a sequence of plain text and/or other segments *)
 Segment = '[' tag spc+ Attrs? TextContent ']'
 
 tag = #':[^\s]*'
 
+(* An attribute map is enclosed in curly braces, and consists of key-value pairs *)
 Attrs = '{' spc* '}'
     | '{' spc* KVPair spc* '}'
     | '{' spc* KVPair (spc+ KVPair)* spc* '}'
