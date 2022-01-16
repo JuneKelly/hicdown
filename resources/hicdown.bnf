@@ -2,7 +2,17 @@
 Document = <(nl | (dnl)*)> Block (<dnl> Block)* <(nl | (dnl)*)>
 
 <spc> = #'\s'
+
+(* Mandatory spaces *)
+<mspc> = <spc+>
+
+(* Optional spaces *)
+<ospc> = <spc*>
+
+(* "Double" newlines (any sequence of blank lines) *)
 dnl = #'\n(\n)+'
+
+(* Single newlines *)
 nl = !dnl #'\n'
 
 (* A block consists of plain text, and/or segments *)
@@ -16,16 +26,17 @@ escape = '\\[' | '\\]' | '\\{' | '\\}'
 
 (* A segment is enclosed in square brackets, with a tag and optional attr map,
    and contains a sequence of plain text and/or other segments *)
-Segment = <'['> tag <spc+> Attrs? TextContent? <']'>
+Segment = <'['> tag mspc Attrs? TextContent? <']'>
 
 tag = #':[^\s]*'
 
 (* An attribute map is enclosed in curly braces, and consists of key-value pairs *)
-Attrs = <'{'> spc* <'}'>
-    | <'{'> spc* KVPair spc* <'}'>
-    | <'{'> spc* KVPair (<spc+> KVPair)* <spc*> <'}'>
+Attrs = <'{'> ospc <'}'>
+    | <'{'> ospc KVPair ospc <'}'>
+    | <'{'> ospc KVPair (mspc KVPair)* ospc <'}'>
 
 KVPair = key <spc+> val
 
 key = #':[\w]+'
 val = #'[^\s}]+'
+
