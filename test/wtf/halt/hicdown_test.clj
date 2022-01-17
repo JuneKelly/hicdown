@@ -174,6 +174,19 @@
         [:esc "\\\\"]
         [:Segment [:tag ":a"]
          ~@(s "foo")]
+        ~@(s " bar.")]])
+
+    (test-parse
+     "segments/nested-segments.hd"
+     `[:Document
+       [:Block
+        ~@(s "Test ")
+        [:Segment [:tag ":a"]
+         [:Segment [:tag ":b"]
+          [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
+          " "
+          [:Segment [:tag ":c"]
+           ~@(s "foo")]]]
         ~@(s " bar.")]]))
 
   (testing "Attrs"
