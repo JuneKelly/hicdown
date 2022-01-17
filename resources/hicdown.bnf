@@ -16,7 +16,7 @@ dnl = #'\n(\n)+'
 (* Single newlines *)
 nl = !dnl <#'\n'>
 
-(* Comments, only valid at the block level. start with ';;' *)
+(* Comments, only valid at the block level. start with ';;', run to end of line *)
 comment = #';;[^\n]*'
 
 (* A block consists of plain text, and/or segments *)
