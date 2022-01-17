@@ -35,6 +35,7 @@ Parsing:
 - [x] Escape the backslash character
 - [x] String values in attribute map
 - [x] Comments
+- [x] Split up the tests
 - [ ] Verbatim segments
 - [ ] Look into how we can use instaparse metadata and transforms
 - [ ] Remove extra spaces from Text runs, make it consistent
