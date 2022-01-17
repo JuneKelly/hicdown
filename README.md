@@ -12,29 +12,14 @@ And this is another block, with a [:link {:to example.com} cool website].
 
 Parsing:
 
-```
-user=> (pprint
-  (parser "Hello there, this is [:bold some [:italic {:id foo} strong] text here]."))
-[:Document
- [:Block
-  [:TextContent
-   "Hello there, this is "
-   [:Segment
-    "["
-    [:tag ":bold"]
-    " "
-    [:TextContent
-     "some "
-     [:Segment
-      "["
-      [:tag ":italic"]
-      " "
-      [:Attrs "{" [:KVPair [:key ":id"] " " [:val "foo"]] "}"]
-      [:TextContent " strong"]
-      "]"]
-     " text here"]
-    "]"]
-   "."]]]
+``` clojure
+(parser "Hello, this is [:bold some [:italic {:id foo} strong] text here].")
+[:Document [:Block "H" "e" "l" "l" "o" "," " " "t" "h" "i" "s" " " "i" "s" " " 
+  [:Segment [:tag ":bold"] "s" "o" "m" "e" " " 
+    [:Segment [:tag ":italic"] [:Attrs [:KVPair [:key ":id"] [:val "foo"]]] 
+      " " "s" "t" "r" "o" "n" "g"] 
+    " " "t" "e" "x" "t" 
+    " " "h" "e" "r" "e"] "."]]
 ```
 
 ## Todo
