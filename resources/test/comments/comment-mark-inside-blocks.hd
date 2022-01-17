@@ -1,0 +1,8 @@
+;; A note
+
+Some text ;; with semi-colons.
+
+;; Another note
+
+;; this doesn't count as a comment
+because it's actually inside a block.
