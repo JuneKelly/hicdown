@@ -14,7 +14,8 @@ Parsing:
 
 ``` clojure
 (parser "Hello, this is [:bold some [:italic {:id foo} strong] text here].")
-[:Document [:Block "H" "e" "l" "l" "o" "," " " "t" "h" "i" "s" " " "i" "s" " " 
+[:Document 
+ [:Block "H" "e" "l" "l" "o" "," " " "t" "h" "i" "s" " " "i" "s" " " 
   [:Segment [:tag ":bold"] "s" "o" "m" "e" " " 
     [:Segment [:tag ":italic"] [:Attrs [:KVPair [:key ":id"] [:val "foo"]]] 
       " " "s" "t" "r" "o" "n" "g"] 
