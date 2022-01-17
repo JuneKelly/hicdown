@@ -32,7 +32,6 @@ Parsing:
   - [x] Should web hide these nodes in the tree?
 - [x] Newline escapes
 - [x] Escape the backslash character
-- [ ] Hide `nl` nodes in tree?
 - [ ] Remove extra spaces from Text runs, make it consistent
 - [ ] String values in attribute map
 - [ ] Comments

@@ -19,9 +19,9 @@ nl = !dnl <#'\n'>
 (* A block consists of plain text, and/or segments *)
 Block = TextContent
 
-<TextContent> = (textchar | escape | nl | Segment)+
+<TextContent> = (textchar | esc | nl | Segment)+
 
-<escape> = '\\\\' | '\\[' | '\\]' | '\\{' | '\\}' | '\\\n'
+esc = '\\\\' | '\\[' | '\\]' | '\\{' | '\\}' | '\\\n'
 
 <textchar> = #'[^\n\[\]{}]'
 

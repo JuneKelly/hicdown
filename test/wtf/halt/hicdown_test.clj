@@ -132,15 +132,15 @@
      `[:Document
        [:Block
         ~@(s "Test ")
-        "\\["
+        [:esc "\\["]
         ~@(s " something ")
-        "\\]"
+        [:esc "\\]"]
         ~@(s " here.")]
        [:Block
         ~@(s "And ")
-        "\\{"
+        [:esc "\\{"]
         ~@(s " something else ")
-        "\\}"
+        [:esc "\\}"]
         ~@(s " here.")]])
 
     (test-parse
@@ -152,9 +152,9 @@
          [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
          ~@(s " foo")]
         ~@(s " bar ")
-        "\\["
+        [:esc "\\["]
         ~@(s " baz ")
-        "\\]"
+        [:esc "\\]"]
         ~@(s ".")]])
 
     (test-parse
@@ -163,7 +163,7 @@
        [:Block
         ~@(s "Test one two")
         [:nl]
-        "\\\n"
+        [:esc "\\\n"]
         ~@(s "three four.")]])
 
     (test-parse
@@ -171,7 +171,7 @@
      `[:Document
        [:Block
         ~@(s "Test ")
-        "\\\\"
+        [:esc "\\\\"]
         [:Segment [:tag ":a"]
          ~@(s "foo")]
         ~@(s " bar.")]])))
