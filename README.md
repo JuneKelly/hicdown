@@ -33,7 +33,7 @@ Parsing:
   - [x] Should web hide these nodes in the tree?
 - [x] Newline escapes
 - [x] Escape the backslash character
-- [ ] String values in attribute map
+- [x] String values in attribute map
 - [ ] Comments
 - [ ] Verbatim segments
 - [ ] Look into how we can use instaparse metadata and transforms
