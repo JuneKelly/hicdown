@@ -36,8 +36,11 @@ Attrs = <'{'> ospc <'}'>
     | <'{'> ospc KVPair ospc <'}'>
     | <'{'> ospc KVPair (mspc KVPair)* ospc <'}'>
 
-KVPair = key <spc+> val
+KVPair = key <spc+> (val | Qval)
 
 key = #':[\w]+'
-val = #'[^\s}]+'
+val = #'[^\s}"\']+'
 
+Qval = <'"'> (valchar | valesc)* <'"'>
+<valchar> = #'[^"]'
+valesc = '\\"'
