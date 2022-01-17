@@ -1,6 +1,6 @@
 (ns wtf.halt.simple-test
   (:require  [clojure.test :as t]
-             [wtf.halt.hicdown-test :refer [test-parse s]]))
+             [wtf.halt.hicdown-test-utils :refer [test-parse s]]))
 
 (t/deftest simple-document
   (t/testing "Simple documents"

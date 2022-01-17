@@ -1,4 +1,4 @@
-(ns wtf.halt.hicdown-test
+(ns wtf.halt.hicdown-test-utils
   (:require [clojure.test :as t]
             [clojure.java.io :as io]
             [clojure.string :as str]

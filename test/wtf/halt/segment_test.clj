@@ -1,6 +1,6 @@
 (ns wtf.halt.segment-test
   (:require  [clojure.test :as t]
-             [wtf.halt.hicdown-test :refer [test-parse s]]))
+             [wtf.halt.hicdown-test-utils :refer [test-parse s]]))
 
 (t/deftest segments
   (t/testing "Segments"
