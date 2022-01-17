@@ -32,11 +32,11 @@ Parsing:
   - [x] Should web hide these nodes in the tree?
 - [x] Newline escapes
 - [x] Escape the backslash character
-- [ ] Remove extra spaces from Text runs, make it consistent
 - [ ] String values in attribute map
 - [ ] Comments
-- [ ] Look into how we can use instaparse metadata and transforms
 - [ ] Verbatim segments
+- [ ] Look into how we can use instaparse metadata and transforms
+- [ ] Remove extra spaces from Text runs, make it consistent
 
 
 ## Installation
