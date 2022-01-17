@@ -15,7 +15,7 @@
 
 (defn parses [path expected-data]
   (t/is (= (parse-test-file path)
-         expected-data)))
+           expected-data)))
 
 (defn test-parse [path expected-data]
   (t/testing (str "Parse " path)
