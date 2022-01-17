@@ -21,7 +21,7 @@ Block = TextContent
 
 <TextContent> = (textchar | escape | nl | Segment)+
 
-<escape> = '\\[' | '\\]' | '\\{' | '\\}'
+<escape> = '\\[' | '\\]' | '\\{' | '\\}' | '\\\n'
 
 <textchar> = #'[^\n\[\]{}]'
 

@@ -155,4 +155,13 @@
         "\\["
         ~@(s " baz ")
         "\\]"
-        ~@(s ".")]])))
+        ~@(s ".")]])
+
+    (test-parse
+     "segments/newline-escape.hd"
+     `[:Document
+       [:Block
+        ~@(s "Test one two")
+        [:nl]
+        "\\\n"
+        ~@(s "three four.")]])))
