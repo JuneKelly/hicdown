@@ -34,7 +34,7 @@ Parsing:
 - [x] Newline escapes
 - [x] Escape the backslash character
 - [x] String values in attribute map
-- [ ] Comments
+- [x] Comments
 - [ ] Verbatim segments
 - [ ] Look into how we can use instaparse metadata and transforms
 - [ ] Remove extra spaces from Text runs, make it consistent
