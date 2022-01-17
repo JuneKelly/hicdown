@@ -38,6 +38,7 @@ Parsing:
 - [ ] Verbatim segments
 - [ ] Look into how we can use instaparse metadata and transforms
 - [ ] Remove extra spaces from Text runs, make it consistent
+- [ ] Post-process tree to squash text down?
 - [ ] Compile to HTML
 
 
