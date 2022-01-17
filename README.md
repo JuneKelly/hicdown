@@ -48,7 +48,7 @@ Don't.
 
 ## Usage
 
-FIXME: explanation
+Also don't. But if you must:
 
 Run the project directly, via `:exec-fn`:
 
