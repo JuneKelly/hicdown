@@ -164,4 +164,14 @@
         ~@(s "Test one two")
         [:nl]
         "\\\n"
-        ~@(s "three four.")]])))
+        ~@(s "three four.")]])
+
+    (test-parse
+     "segments/backslash-escape.hd"
+     `[:Document
+       [:Block
+        ~@(s "Test ")
+        "\\\\"
+        [:Segment [:tag ":a"]
+         ~@(s "foo")]
+        ~@(s " bar.")]])))
