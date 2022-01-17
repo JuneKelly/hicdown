@@ -30,7 +30,7 @@ Parsing:
 - [x] Switch to capturing individual characters in text run
 - [x] Get escape characters right
   - [x] Should web hide these nodes in the tree?
-- [ ] Newline escapes
+- [x] Newline escapes
 - [ ] Escape the backslash character
 - [ ] Hide `nl` nodes in tree?
 - [ ] Remove extra spaces from Text runs, make it consistent
