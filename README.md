@@ -36,6 +36,9 @@ Parsing:
 - [x] String values in attribute map
 - [x] Comments
 - [x] Split up the tests
+- [ ] Refine newline handling within blocks
+  - [ ] Test how multiple newlines are handled as block separators
+  - [ ] Can we strip out the trailing newline at the end of a file?
 - [ ] Verbatim segments
 - [ ] Look into how we can use instaparse metadata and transforms
 - [ ] Remove extra spaces from Text runs, make it consistent

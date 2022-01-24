@@ -22,11 +22,11 @@ comment = #';;[^\n]*'
 (* A block consists of plain text, and/or segments *)
 Block = TextContent
 
-<TextContent> = (textchar | esc | nl | Segment)+
+<TextContent> = (textchar | esc  | Segment)+
 
 esc = '\\\\' | '\\[' | '\\]' | '\\{' | '\\}' | '\\\n'
 
-<textchar> = #'[^\n\[\]{}]'
+<textchar> = #'[^\[\]{}]'
 
 (* A segment is enclosed in square brackets, with a tag and optional attr map,
    and contains a sequence of plain text and/or other segments *)

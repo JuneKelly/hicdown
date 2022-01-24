@@ -11,7 +11,7 @@
        [:Block
         ~@(s "Test ")
         [:Segment [:tag ":a"]]
-        ~@(s " foo.")]])
+        ~@(s " foo.\n")]])
 
     (test-parse
      "segments/empty-with-attrs.hd"
@@ -20,7 +20,7 @@
         ~@(s "Test ")
         [:Segment [:tag ":a"]
          [:Attrs [:KVPair [:key ":x"] [:val "y"]]]]
-        ~@(s " foo.")]])
+        ~@(s " foo.\n")]])
 
     (test-parse
      "segments/with-content-text.hd"
@@ -29,7 +29,7 @@
         ~@(s "Test ")
         [:Segment [:tag ":a"]
          ~@(s "foo")]
-        ~@(s " bar.")]])
+        ~@(s " bar.\n")]])
 
     (test-parse
      "segments/with-content-text-and-attrs.hd"
@@ -39,7 +39,7 @@
         [:Segment [:tag ":a"]
          [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
          ~@(s " foo")] ;; Note the extra space here, should be parsed out?
-        ~@(s " bar.")]])
+        ~@(s " bar.\n")]])
 
     (test-parse
      "segments/spanning-newline.hd"
@@ -48,10 +48,9 @@
         ~@(s "Test ")
         [:Segment [:tag ":a"]
          [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
-         ~@(s " foo")
-         [:nl]
+         ~@(s " foo\n")
          ~@(s "bar baz")]
-        ~@(s " quux.")]])
+        ~@(s " quux.\n")]])
 
     (test-parse
      "segments/with-escapes.hd"
@@ -67,7 +66,7 @@
         [:esc "\\{"]
         ~@(s " something else ")
         [:esc "\\}"]
-        ~@(s " here.")]])
+        ~@(s " here.\n")]])
 
     (test-parse
      "segments/with-escapes-and-segments.hd"
@@ -81,16 +80,15 @@
         [:esc "\\["]
         ~@(s " baz ")
         [:esc "\\]"]
-        ~@(s ".")]])
+        ~@(s ".\n")]])
 
     (test-parse
      "segments/newline-escape.hd"
      `[:Document
        [:Block
-        ~@(s "Test one two")
-        [:nl]
+        ~@(s "Test one two\n")
         [:esc "\\\n"]
-        ~@(s "three four.")]])
+        ~@(s "three four.\n")]])
 
     (test-parse
      "segments/backslash-escape.hd"
@@ -100,7 +98,7 @@
         [:esc "\\\\"]
         [:Segment [:tag ":a"]
          ~@(s "foo")]
-        ~@(s " bar.")]])
+        ~@(s " bar.\n")]])
 
     (test-parse
      "segments/nested-segments.hd"
@@ -113,4 +111,16 @@
           " "
           [:Segment [:tag ":c"]
            ~@(s "foo")]]]
-        ~@(s " bar.")]])))
+        ~@(s " bar.\n")]])
+
+    (test-parse
+     "segments/spanning-double-newline.hd"
+     `[:Document
+       [:Block
+        ~@(s "Test ")
+        [:Segment [:tag ":a"]
+         [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
+         ~@(s " foo\n\n")
+         ~@(s "bar baz")]
+        ~@(s " quux.\n")]])
+    ))
