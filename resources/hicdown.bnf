@@ -28,11 +28,6 @@ esc = '\\\\' | '\\[' | '\\]' | '\\{' | '\\}' | '\\\n' | '\\%'
 
 <textchar> = #'[^\[\]{}]'
 
-Verbatim = '%' W '%'
-<W> = '%' (W | V) '%'
-<V> = !'%' #'.'+
-
-
 (* A segment is enclosed in square brackets, with a tag and optional attr map,
    and contains a sequence of plain text and/or other segments *)
 Segment = <'['> tag mspc Attrs? (Verbatim / TextContent)? <']'>
@@ -52,3 +47,8 @@ val = #'[^\s}"\']+'
 Qval = <'"'> (valchar | valesc)* <'"'>
 <valchar> = #'[^"]'
 valesc = '\\"'
+
+(*Verbatim content, between balanced runs of percent-signs (minimum 2) *)
+Verbatim = '%' NestedVerbatim '%'
+<NestedVerbatim> = '%' (NestedVerbatim | verbatimchar) '%'
+<verbatimchar> = !'%' #'.'+
