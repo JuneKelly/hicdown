@@ -40,6 +40,8 @@ Parsing:
   - [x] Test how multiple newlines are handled as block separators
   - [x] Can we strip out the trailing newline at the end of a file?
 - [ ] Verbatim segments
+  - Strange interaction between verbatim content and comments
+  - Rework comments to be special segments? like [; something]
 - [ ] Look into how we can use instaparse metadata and transforms
 - [ ] Remove extra spaces from Text runs, make it consistent
 - [ ] Atom attributes?
