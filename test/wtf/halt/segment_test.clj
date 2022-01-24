@@ -120,7 +120,7 @@
         ~@(s "Test ")
         [:Segment [:tag ":a"]
          [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
-         ~@(s " foo\n\n")
+         ~@(s " foo\n\n\n")
          ~@(s "bar baz")]
         ~@(s " quux.")]])
     ))
