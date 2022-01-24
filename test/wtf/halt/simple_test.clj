@@ -9,14 +9,13 @@
      `[:Document
        [:Block
         ~@(s "Hello this is a simple\n")
-        ~@(s "block of text\n")]])
+        ~@(s "block of text")]])
 
     (test-parse
      "simple/one-block-with-leading-blank-lines.hd"
      `[:Document
-       [:Block "\n"]
        [:Block
-        ~@(s "Hello\n")]])
+        ~@(s "Hello")]])
 
     (test-parse
      "simple/three-blocks.hd"
@@ -28,7 +27,7 @@
         ~@(s "four five.")]
        [:Block
         ~@(s "Six seven\n")
-        ~@(s "eight nine.\n")]])
+        ~@(s "eight nine.")]])
 
     (test-parse
      "simple/blocks-with-segments.hd"
@@ -50,4 +49,4 @@
         [:Segment
          [:tag ":foo"]
          [:Attrs [:KVPair [:key ":a"] [:val "b"]]]]
-        ~@(s " baz.\n")]])))
+        ~@(s " baz.")]])))

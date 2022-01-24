@@ -15,7 +15,7 @@
           [:KVPair [:key ":bb"] [:val "cc"]]
           [:KVPair [:key ":dd"] [:val "ee"]]]
          ~@(s " foo")]
-        ~@(s " bar.\n")]])
+        ~@(s " bar.")]])
 
     (test-parse
      "attrs/with-quoted-values.hd"
@@ -27,7 +27,7 @@
           [:KVPair [:key ":bb"] [:Qval ~@(s "c  c")]]
           [:KVPair [:key ":dd"] [:Qval ~@(s "e}e")]]]
          ~@(s " foo")]
-        ~@(s " bar.\n")]])
+        ~@(s " bar.")]])
 
     (test-parse
      "attrs/with-quoted-values-and-escapes.hd"
@@ -39,4 +39,4 @@
           [:KVPair [:key ":bb"] [:Qval ~@(s "c  c ") [:valesc "\\\""] ~@(s " z z")]]
           [:KVPair [:key ":dd"] [:Qval ~@(s "e}e")]]]
          ~@(s " foo")]
-        ~@(s " bar.\n")]])))
+        ~@(s " bar.")]])))

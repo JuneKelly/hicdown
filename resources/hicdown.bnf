@@ -1,5 +1,5 @@
 (* A document is a sequence of blocks, separated by blank lines *)
-Document = <(nl | (dnl)*)> (Block | comment) (<dnl> (Block | comment))* <(nl | (dnl)*)>
+Document = <#'\n*'> (Block | comment) (<dnl> (Block | comment))* <#'\n*'>
 
 (* Spaces *)
 <spc> = <#'\s'>

@@ -16,7 +16,7 @@
         ~@(s " bar.")]
        [:comment ";; Another note"]
        [:Block
-        ~@(s "Hello.\n")]])
+        ~@(s "Hello.")]])
 
     (test-parse
      "comments/comment-mark-inside-blocks.hd"
@@ -27,4 +27,4 @@
        [:comment ";; Another note"]
        [:Block
         ~@(s ";; this doesn't count as a comment\n")
-        ~@(s "because it's actually inside a block.\n")]])))
+        ~@(s "because it's actually inside a block.")]])))
