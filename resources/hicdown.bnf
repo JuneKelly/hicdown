@@ -22,15 +22,20 @@ comment = #';;[^\n]*'
 (* A block consists of plain text, and/or segments *)
 Block = TextContent
 
-<TextContent> = (textchar | esc  | Segment)+
+<TextContent> = (textchar | esc | Segment)+
 
-esc = '\\\\' | '\\[' | '\\]' | '\\{' | '\\}' | '\\\n'
+esc = '\\\\' | '\\[' | '\\]' | '\\{' | '\\}' | '\\\n' | '\\%'
 
 <textchar> = #'[^\[\]{}]'
 
+Verbatim = '%' W '%'
+<W> = '%' (W | V) '%'
+<V> = !'%' #'.'+
+
+
 (* A segment is enclosed in square brackets, with a tag and optional attr map,
    and contains a sequence of plain text and/or other segments *)
-Segment = <'['> tag mspc Attrs? TextContent? <']'>
+Segment = <'['> tag mspc Attrs? (Verbatim / TextContent)? <']'>
 
 tag = #':[^\s]*'
 
