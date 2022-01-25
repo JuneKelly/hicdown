@@ -19,7 +19,11 @@ nl = !dnl <#'\n'>
 (* A block consists of plain text, and/or segments *)
 Block = Content
 
-<Content> = (textchar | esc | Segment)+
+<Content> = Segment Content
+    | Text (Segment Content | Epsilon)
+    | Epsilon
+
+Text = (textchar | esc)+
 
 esc = '\\\\' | '\\[' | '\\]' | '\\{' | '\\}' | '\\\n'
 

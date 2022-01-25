@@ -9,34 +9,34 @@
      "attrs/basic.hd"
      `[:Document
        [:Block
-        ~@(s "Test ")
+        [:Text ~@(s "Test ")]
         [:Segment [:tag ":aa"]
          [:Attrs
           [:Pair [:key ":bb"] [:val "cc"]]
           [:Pair [:key ":dd"] [:val "ee"]]]
-         ~@(s " foo")]
-        ~@(s " bar.")]])
+         [:Text ~@(s " foo")]]
+        [:Text ~@(s " bar.")]]])
 
     (test-parse
      "attrs/with-quoted-values.hd"
      `[:Document
        [:Block
-        ~@(s "Test ")
+        [:Text ~@(s "Test ")]
         [:Segment [:tag ":aa"]
          [:Attrs
           [:Pair [:key ":bb"] [:Qval ~@(s "c  c")]]
           [:Pair [:key ":dd"] [:Qval ~@(s "e}e")]]]
-         ~@(s " foo")]
-        ~@(s " bar.")]])
+         [:Text ~@(s " foo")]]
+        [:Text ~@(s " bar.")]]])
 
     (test-parse
      "attrs/with-quoted-values-and-escapes.hd"
      `[:Document
        [:Block
-        ~@(s "Test ")
+        [:Text ~@(s "Test ")]
         [:Segment [:tag ":aa"]
          [:Attrs
           [:Pair [:key ":bb"] [:Qval ~@(s "c  c ") [:valesc "\\\""] ~@(s " z z")]]
           [:Pair [:key ":dd"] [:Qval ~@(s "e}e")]]]
-         ~@(s " foo")]
-        ~@(s " bar.")]])))
+         [:Text ~@(s " foo")]]
+        [:Text ~@(s " bar.")]]])))

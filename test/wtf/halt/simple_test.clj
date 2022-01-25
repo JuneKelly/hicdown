@@ -8,45 +8,46 @@
      "simple/one-block.hd"
      `[:Document
        [:Block
-        ~@(s "Hello this is a simple\n")
-        ~@(s "block of text")]])
+        [:Text
+         ~@(s "Hello this is a simple\n")
+         ~@(s "block of text")]]])
 
     (test-parse
      "simple/one-block-with-leading-blank-lines.hd"
      `[:Document
        [:Block
-        ~@(s "Hello")]])
+        [:Text ~@(s "Hello")]]])
 
     (test-parse
      "simple/three-blocks.hd"
      `[:Document
        [:Block
-        ~@(s "Test one.")]
+        [:Text ~@(s "Test one.")]]
        [:Block
-        ~@(s "Two three\n")
-        ~@(s "four five.")]
+        [:Text ~@(s "Two three\n")
+         ~@(s "four five.")]]
        [:Block
-        ~@(s "Six seven\n")
-        ~@(s "eight nine.")]])
+        [:Text ~@(s "Six seven\n")
+         ~@(s "eight nine.")]]])
 
     (test-parse
      "simple/blocks-with-segments.hd"
      `[:Document
        [:Block
-        ~@(s "Test ")
+        [:Text ~@(s "Test ")]
         [:Segment [:tag ":foo"]
-         ~@(s "bar")]
-        ~@(s " baz.")]
+         [:Text ~@(s "bar")]]
+        [:Text ~@(s " baz.")]]
        [:Block
-        ~@(s "Test ")
+        [:Text ~@(s "Test ")]
         [:Segment
          [:tag ":foo"]
          [:Attrs [:Pair [:key ":a"] [:val "b"]]]
-         ~@(s " bar")]
-        ~@(s " baz.")]
+         [:Text ~@(s " bar")]]
+        [:Text ~@(s " baz.")]]
        [:Block
-        ~@(s "Test ")
+        [:Text ~@(s "Test ")]
         [:Segment
          [:tag ":foo"]
          [:Attrs [:Pair [:key ":a"] [:val "b"]]]]
-        ~@(s " baz.")]])))
+        [:Text ~@(s " baz.")]]])))
