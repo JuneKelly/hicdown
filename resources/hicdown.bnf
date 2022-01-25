@@ -1,5 +1,5 @@
 (* A document is a sequence of blocks, separated by blank lines *)
-Document = <#'\n*'> (Block | comment) (<dnl> (Block | comment))* <#'\n*'>
+Document = <#'\n*'> Block (<dnl> Block)* <#'\n*'>
 
 (* Spaces *)
 <spc> = <#'\s'>
@@ -15,9 +15,6 @@ dnl = #'\n(\n)+'
 
 (* Single newlines *)
 nl = !dnl <#'\n'>
-
-(* Comments, only valid at the block level. start with ';;', run to end of line *)
-comment = #';;[^\n]*'
 
 (* A block consists of plain text, and/or segments *)
 Block = TextContent
