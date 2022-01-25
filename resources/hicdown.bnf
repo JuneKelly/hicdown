@@ -17,9 +17,9 @@ dnl = #'\n(\n)+'
 nl = !dnl <#'\n'>
 
 (* A block consists of plain text, and/or segments *)
-Block = TextContent
+Block = Content
 
-<TextContent> = (textchar | esc | Segment)+
+<Content> = (textchar | esc | Segment)+
 
 esc = '\\\\' | '\\[' | '\\]' | '\\{' | '\\}' | '\\\n'
 
@@ -27,7 +27,7 @@ esc = '\\\\' | '\\[' | '\\]' | '\\{' | '\\}' | '\\\n'
 
 (* A segment is enclosed in square brackets, with a tag and optional attr map,
    and contains a sequence of plain text and/or other segments *)
-Segment = <'['> tag mspc Attrs? TextContent? <']'>
+Segment = <'['> tag mspc Attrs? Content? <']'>
 
 tag = #':[^\s]*'
 
