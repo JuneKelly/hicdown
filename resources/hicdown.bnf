@@ -33,10 +33,10 @@ tag = #':[^\s]*'
 
 (* An attribute map is enclosed in curly braces, and consists of key-value pairs *)
 Attrs = <'{'> ospc <'}'>
-    | <'{'> ospc KVPair ospc <'}'>
-    | <'{'> ospc KVPair (mspc KVPair)* ospc <'}'>
+    | <'{'> ospc Pair ospc <'}'>
+    | <'{'> ospc Pair (mspc Pair)* ospc <'}'>
 
-KVPair = key <spc+> (val | Qval)
+Pair = key <spc+> (val | Qval)
 
 key = #':[\w]+'
 val = #'[^\s}"\']+'

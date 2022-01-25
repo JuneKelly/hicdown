@@ -41,12 +41,12 @@
         ~@(s "Test ")
         [:Segment
          [:tag ":foo"]
-         [:Attrs [:KVPair [:key ":a"] [:val "b"]]]
+         [:Attrs [:Pair [:key ":a"] [:val "b"]]]
          ~@(s " bar")]
         ~@(s " baz.")]
        [:Block
         ~@(s "Test ")
         [:Segment
          [:tag ":foo"]
-         [:Attrs [:KVPair [:key ":a"] [:val "b"]]]]
+         [:Attrs [:Pair [:key ":a"] [:val "b"]]]]
         ~@(s " baz.")]])))

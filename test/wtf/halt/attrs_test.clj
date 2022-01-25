@@ -12,8 +12,8 @@
         ~@(s "Test ")
         [:Segment [:tag ":aa"]
          [:Attrs
-          [:KVPair [:key ":bb"] [:val "cc"]]
-          [:KVPair [:key ":dd"] [:val "ee"]]]
+          [:Pair [:key ":bb"] [:val "cc"]]
+          [:Pair [:key ":dd"] [:val "ee"]]]
          ~@(s " foo")]
         ~@(s " bar.")]])
 
@@ -24,8 +24,8 @@
         ~@(s "Test ")
         [:Segment [:tag ":aa"]
          [:Attrs
-          [:KVPair [:key ":bb"] [:Qval ~@(s "c  c")]]
-          [:KVPair [:key ":dd"] [:Qval ~@(s "e}e")]]]
+          [:Pair [:key ":bb"] [:Qval ~@(s "c  c")]]
+          [:Pair [:key ":dd"] [:Qval ~@(s "e}e")]]]
          ~@(s " foo")]
         ~@(s " bar.")]])
 
@@ -36,7 +36,7 @@
         ~@(s "Test ")
         [:Segment [:tag ":aa"]
          [:Attrs
-          [:KVPair [:key ":bb"] [:Qval ~@(s "c  c ") [:valesc "\\\""] ~@(s " z z")]]
-          [:KVPair [:key ":dd"] [:Qval ~@(s "e}e")]]]
+          [:Pair [:key ":bb"] [:Qval ~@(s "c  c ") [:valesc "\\\""] ~@(s " z z")]]
+          [:Pair [:key ":dd"] [:Qval ~@(s "e}e")]]]
          ~@(s " foo")]
         ~@(s " bar.")]])))

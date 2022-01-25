@@ -19,7 +19,7 @@
        [:Block
         ~@(s "Test ")
         [:Segment [:tag ":a"]
-         [:Attrs [:KVPair [:key ":x"] [:val "y"]]]]
+         [:Attrs [:Pair [:key ":x"] [:val "y"]]]]
         ~@(s " foo.")]])
 
     (test-parse
@@ -37,7 +37,7 @@
        [:Block
         ~@(s "Test ")
         [:Segment [:tag ":a"]
-         [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
+         [:Attrs [:Pair [:key ":x"] [:val "y"]]]
          ~@(s " foo")] ;; Note the extra space here, should be parsed out?
         ~@(s " bar.")]])
 
@@ -47,7 +47,7 @@
        [:Block
         ~@(s "Test ")
         [:Segment [:tag ":a"]
-         [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
+         [:Attrs [:Pair [:key ":x"] [:val "y"]]]
          ~@(s " foo\n")
          ~@(s "bar baz")]
         ~@(s " quux.")]])
@@ -74,7 +74,7 @@
        [:Block
         ~@(s "Test ")
         [:Segment [:tag ":a"]
-         [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
+         [:Attrs [:Pair [:key ":x"] [:val "y"]]]
          ~@(s " foo")]
         ~@(s " bar ")
         [:esc "\\["]
@@ -107,7 +107,7 @@
         ~@(s "Test ")
         [:Segment [:tag ":a"]
          [:Segment [:tag ":b"]
-          [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
+          [:Attrs [:Pair [:key ":x"] [:val "y"]]]
           " "
           [:Segment [:tag ":c"]
            ~@(s "foo")]]]
@@ -119,7 +119,7 @@
        [:Block
         ~@(s "Test ")
         [:Segment [:tag ":a"]
-         [:Attrs [:KVPair [:key ":x"] [:val "y"]]]
+         [:Attrs [:Pair [:key ":x"] [:val "y"]]]
          ~@(s " foo\n\n\n")
          ~@(s "bar baz")]
         ~@(s " quux.")]])))
