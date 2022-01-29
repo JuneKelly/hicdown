@@ -39,11 +39,11 @@ Parsing:
 - [x] Refine newline handling within blocks
   - [x] Test how multiple newlines are handled as block separators
   - [x] Can we strip out the trailing newline at the end of a file?
-- [ ] Proper text runs
+- [x] Proper text runs
   - [x] Add to grammar
-  - [ ] Update tests
-  - [ ] Collapse into strings?
-  - [ ] Should escapes be inside or outside text runs?
+  - [x] Update tests
+  - [x] Should escapes be inside or outside text runs?
+- [ ] Collapse text runs into strings?
 - [ ] Verbatim segments
 - [ ] Look into how we can use instaparse metadata and transforms
 - [ ] Remove extra spaces from Text runs, make it consistent

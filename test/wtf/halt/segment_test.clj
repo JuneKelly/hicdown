@@ -58,15 +58,15 @@
        [:Block
         [:Text
          ~@(s "Test ")
-         [:esc "\\["]
+         "\\["
          ~@(s " something ")
-         [:esc "\\]"]
+         "\\]"
          ~@(s " here.")]]
        [:Block
         [:Text ~@(s "And ")
-         [:esc "\\{"]
+         "\\{"
          ~@(s " something else ")
-         [:esc "\\}"]
+         "\\}"
          ~@(s " here.")]]])
 
     (test-parse
@@ -78,9 +78,9 @@
          [:Attrs [:Pair [:key ":x"] [:val "y"]]]
          [:Text ~@(s " foo")]]
         [:Text ~@(s " bar ")
-         [:esc "\\["]
+         "\\["
          ~@(s " baz ")
-         [:esc "\\]"]
+         "\\]"
          ~@(s ".")]]])
 
     (test-parse
@@ -88,7 +88,7 @@
      `[:Document
        [:Block
         [:Text ~@(s "Test one two\n")
-         [:esc "\\\n"]
+         "\\\n"
          ~@(s "three four.")]]])
 
     (test-parse
@@ -96,7 +96,7 @@
      `[:Document
        [:Block
         [:Text ~@(s "Test ")
-         [:esc "\\\\"]]
+         "\\\\"]
         [:Segment [:tag ":a"]
          [:Text ~@(s "foo")]]
         [:Text ~@(s " bar.")]]])
