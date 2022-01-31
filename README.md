@@ -44,7 +44,7 @@ Parsing:
   - [x] Update tests
   - [x] Should escapes be inside or outside text runs?
 - [ ] Collapse text runs into strings?
-- [ ] Verbatim segments
+- [x] Verbatim segments
 - [ ] Look into how we can use instaparse metadata and transforms
 - [ ] Remove extra spaces from Text runs, make it consistent
 - [ ] Atom attributes?
