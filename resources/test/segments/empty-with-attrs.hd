@@ -1,1 +1,1 @@
-Test [:a {:x y}] foo.
+Test [:a {x=y z}] foo.

@@ -40,15 +40,23 @@ Segment = <'['> (
 
 tag = #':[^\s]*'
 
-(* An attribute map is enclosed in curly braces, and consists of key-value pairs *)
-Attrs = <'{'> ospc <'}'>
-    | <'{'> ospc Pair ospc <'}'>
-    | <'{'> ospc Pair (mspc Pair)* ospc <'}'>
+(* An attribute map is enclosed in curly braces, and consists of key-value pairs or atoms *)
+Attrs = <'{'> attrspacer* <'}'>
+    | <'{'> attrspacer* AttrElement attrspacer* <'}'>
+    | <'{'> attrspacer* AttrElement (attrspacer+ AttrElement)* attrspacer* <'}'>
 
-Pair = key <spc+> (val | Qval)
+<attrspacer> = <#'[,\s]'>
 
-key = #':[\w]+'
-val = #'[^\s}"\']+'
+<AttrElement> = Pair | Atom | QAtom
+
+Atom = #'[^,\s"][\w]*'
+
+QAtom = <'"'> (valchar | valesc)* <'"'>
+
+Pair = key <'='> (val | Qval)
+
+key = #'[\w]+'
+val = #'[^\s}"\',]+'
 
 Qval = <'"'> (valchar | valesc)* <'"'>
 <valchar> = #'[^"]'

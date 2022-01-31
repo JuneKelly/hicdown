@@ -1,2 +1,2 @@
-Test [:a {:x y} foo
+Test [:a {x=y} foo
 bar baz] quux.

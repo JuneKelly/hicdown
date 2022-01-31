@@ -42,12 +42,12 @@
         [:Text ~@(s "Test ")]
         [:Segment
          [:tag ":foo"]
-         [:Attrs [:Pair [:key ":a"] [:val "b"]]]
+         [:Attrs [:Pair [:key "a"] [:val "b"]]]
          [:Text ~@(s "bar")]]
         [:Text ~@(s " baz.")]]
        [:Block
         [:Text ~@(s "Test ")]
         [:Segment
          [:tag ":foo"]
-         [:Attrs [:Pair [:key ":a"] [:val "b"]]]]
+         [:Attrs [:Pair [:key "a"] [:val "b"]]]]
         [:Text ~@(s " baz.")]]])))

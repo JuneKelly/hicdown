@@ -1,6 +1,6 @@
 This is some code:
 
-[:code {:language javascript} %%%
+[:code {language=javascript} %%%
 const greet = (name) => {
   return `Hello, ${name}.`
 }

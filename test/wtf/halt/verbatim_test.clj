@@ -11,7 +11,7 @@
         [:Text
          ~@(s "Test ")]
         [:Segment [:tag ":a"]
-         [:Attrs [:Pair [:key ":x"] [:val "y"]]]
+         [:Attrs [:Pair [:key "x"] [:val "y"]]]
          [:VerbatimText
           "%%%"
           ~@(s " hello ")
@@ -24,10 +24,10 @@
         [:Text
          ~@(s "Test ")]
         [:Segment [:tag ":a"]
-         [:Attrs [:Pair [:key ":x"] [:val "y"]]]
+         [:Attrs [:Pair [:key "x"] [:val "y"]]]
          [:VerbatimText
           "%%%"
-          ~@(s " hello [:foo {:g h} not a segment], just text. ")
+          ~@(s " hello [:foo {g=h} not a segment], just text. ")
           "%%%"]]
         [:Text ~@(s ", bar.")]]])
 
@@ -39,7 +39,7 @@
          ~@(s "This is some code:")]]
        [:Block
         [:Segment [:tag ":code"]
-         [:Attrs [:Pair [:key ":language"] [:val "javascript"]]]
+         [:Attrs [:Pair [:key "language"] [:val "javascript"]]]
          [:VerbatimText
           "%%%"
           ~@(s "\nconst greet = (name) => {\n  return `Hello, ${name}.`\n}\n")

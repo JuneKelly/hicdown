@@ -1,1 +1,1 @@
-Test [:a {:x y} %%% hello %%%]
+Test [:a {x=y} %%% hello %%%]

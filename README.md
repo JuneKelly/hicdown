@@ -7,20 +7,24 @@ Example:
 ```
 Hello there, this is [:bold some strong text].
 
-And this is another block, with a [:link {:to example.com} cool website].
+And this is another block, with a [:link {to=example.com} cool website].
 ```
 
 Parsing:
 
 ``` clojure
-(parser "Hello, this is [:bold some [:italic {:id foo} strong] text here].")
+(parser "Hello, this is [:bold some [:italic {id=foo} strong] text here].")
+;; produces...
 [:Document 
- [:Block "H" "e" "l" "l" "o" "," " " "t" "h" "i" "s" " " "i" "s" " " 
-  [:Segment [:tag ":bold"] "s" "o" "m" "e" " " 
-    [:Segment [:tag ":italic"] [:Attrs [:KVPair [:key ":id"] [:val "foo"]]] 
-      " " "s" "t" "r" "o" "n" "g"] 
-    " " "t" "e" "x" "t" 
-    " " "h" "e" "r" "e"] "."]]
+  [:Block 
+    [:Text "H" "e" "l" "l" "o" "," " " "t" "h" "i" "s" " " "i" "s" " "]
+    [:Segment [:tag ":bold"] 
+              [:Text "s" "o" "m" "e" " "] 
+      [:Segment [:tag ":italic"] 
+                [:Attrs [:Pair [:key "id"] [:val "foo"]]] 
+                [:Text "s" "t" "r" "o" "n" "g"]] 
+      [:Text " " "t" "e" "x" "t" " " "h" "e" "r" "e"]] 
+    [:Text "."]]]
 ```
 
 ## TODO
@@ -30,8 +34,8 @@ Parsing:
   - [x] Update tests
   - [x] Should escapes be inside or outside text runs?
 - [x] Verbatim segments
-- [ ] Better syntax for attrs?
-  - [ ] atom attributes?
+- [x] Better syntax for attrs?
+  - [x] atom attributes?
 - [ ] Block-level attrs?
 - [ ] Document-level attributes
 - [ ] What would this lang look like without the block concept?

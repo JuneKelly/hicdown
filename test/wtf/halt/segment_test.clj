@@ -19,7 +19,7 @@
        [:Block
         [:Text ~@(s "Test ")]
         [:Segment [:tag ":a"]
-         [:Attrs [:Pair [:key ":x"] [:val "y"]]]]
+         [:Attrs [:Pair [:key "x"] [:val "y"]] [:Atom "z"]]]
         [:Text ~@(s " foo.")]]])
 
     (test-parse
@@ -37,7 +37,7 @@
        [:Block
         [:Text ~@(s "Test ")]
         [:Segment [:tag ":a"]
-         [:Attrs [:Pair [:key ":x"] [:val "y"]]]
+         [:Attrs [:Pair [:key "x"] [:val "y"]]]
          [:Text ~@(s "foo")]]
         [:Text ~@(s " bar.")]]])
 
@@ -47,7 +47,7 @@
        [:Block
         [:Text ~@(s "Test ")]
         [:Segment [:tag ":a"]
-         [:Attrs [:Pair [:key ":x"] [:val "y"]]]
+         [:Attrs [:Pair [:key "x"] [:val "y"]]]
          [:Text ~@(s "foo\n")
           ~@(s "bar baz")]]
         [:Text ~@(s " quux.")]]])
@@ -75,7 +75,7 @@
        [:Block
         [:Text ~@(s "Test ")]
         [:Segment [:tag ":a"]
-         [:Attrs [:Pair [:key ":x"] [:val "y"]]]
+         [:Attrs [:Pair [:key "x"] [:val "y"]]]
          [:Text ~@(s "foo")]]
         [:Text ~@(s " bar ")
          "\\["
@@ -108,7 +108,7 @@
         [:Text ~@(s "Test ")]
         [:Segment [:tag ":a"]
          [:Segment [:tag ":b"]
-          [:Attrs [:Pair [:key ":x"] [:val "y"]]]
+          [:Attrs [:Pair [:key "x"] [:val "y"]]]
           [:Segment [:tag ":c"]
            [:Text ~@(s "foo")]]]]
         [:Text ~@(s " bar.")]]])

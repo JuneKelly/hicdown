@@ -1,1 +1,1 @@
-Test [:a {:x y} foo] bar \[ baz \].
+Test [:a {x=y} foo] bar \[ baz \].

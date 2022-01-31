@@ -1,1 +1,1 @@
-Test [:aa {:bb cc :dd ee} foo] bar.
+Test [:aa {bb=cc, dd=ee, gg hh} foo] bar.
