@@ -23,32 +23,23 @@ Parsing:
     " " "h" "e" "r" "e"] "."]]
 ```
 
-## Todo
+## TODO
 
-- [X] Basics
-- [x] Remove leading and trailing newlines from parse tree
-- [x] Tests
-- [x] Switch to capturing individual characters in text run
-- [x] Get escape characters right
-  - [x] Should web hide these nodes in the tree?
-- [x] Newline escapes
-- [x] Escape the backslash character
-- [x] String values in attribute map
-- [x] Comments
-- [x] Split up the tests
-- [x] Refine newline handling within blocks
-  - [x] Test how multiple newlines are handled as block separators
-  - [x] Can we strip out the trailing newline at the end of a file?
 - [x] Proper text runs
   - [x] Add to grammar
   - [x] Update tests
   - [x] Should escapes be inside or outside text runs?
-- [ ] Collapse text runs into strings?
 - [x] Verbatim segments
+- [ ] Better syntax for attrs?
+  - [ ] atom attributes?
+- [ ] Block-level attrs?
+- [ ] Document-level attributes
+- [ ] What would this lang look like without the block concept?
+- [ ] Post-process text nodes?
+  - [ ] Or, should we allow the AST to be a bit messier? Then clean it up?
+- [ ] Get back the segment-spanning-double-newlines behavior?
 - [ ] Look into how we can use instaparse metadata and transforms
 - [ ] Remove extra spaces from Text runs, make it consistent
-- [ ] Atom attributes?
-- [ ] Document-level attributes
 - [ ] Post-process tree to squash text down?
 - [ ] Compile to HTML
 
