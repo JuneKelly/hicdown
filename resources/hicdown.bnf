@@ -24,9 +24,9 @@ Block = Content
     | (&'%%%' VerbatimText | !'%%%' Text) (Segment Content | Epsilon)
     | Epsilon
 
-Text = (textchar | esc)+
+Text = (textchar | textesc)+
 
-<esc> = '\\\\' | '\\[' | '\\]' | '\\{' | '\\}' | '\\\n'
+textesc = '\\\\' | '\\[' | '\\]' | '\\{' | '\\}' | '\\\n'
 
 <textchar> = !'\n\n' #'[^\[\]{}]'
 

@@ -1,14 +1,15 @@
 (ns wtf.halt.hicdown
   (:require [instaparse.core :as insta]
-            [clojure.java.io :as io]
-            [clojure.pprint :as pp])
-  (:gen-class))
+            [wtf.halt.hicdown.html :as html]
+            [clojure.java.io :as io]))
 
 (def parser
   (insta/parser (io/resource "hicdown.bnf")))
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (-> (parser (first args))
-      (pp/pprint)))
+(defn parse-string [text]
+  (parser text))
+
+(defn render-string [text]
+  (-> text
+      (parse-string)
+      (html/tree-to-html)))

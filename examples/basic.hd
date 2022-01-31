@@ -1,0 +1,29 @@
+[:h1 Welcome to Hicdown]
+
+[:p This is a hicdown document. It consists of blocks and segments.
+    Here is a link to a [:a {href="example.com"} cool website], that you
+    might enjoy. This block is an explicit paragraph tag.]
+
+This block will be a div. This is some code:
+
+[:pre [:code {language="javascript"} %%%
+// Some javascript
+const greet = (name) => {
+  return `Hello, ${name}.`
+}
+%%%]]
+
+And this is text again. Let's do some text formatting.
+This is [:b heavy], while this is [:i leaning].
+Can we style things? [:span {style="color: red"} this text is red].
+I hope that worked.
+
+Let's make a list:
+
+[:ul
+  [:li One]
+  [:li Two
+    [:ul
+      [:li aa]
+      [:li bb]]]
+  [:li Three]]

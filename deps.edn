@@ -1,9 +1,11 @@
 {:paths ["src" "resources"]
  :deps {org.clojure/clojure {:mvn/version "1.10.3"}
-        instaparse/instaparse {:mvn/version "1.4.10"}}
+        org.clojure/tools.cli {:mvn/version "1.0.206"}
+        instaparse/instaparse {:mvn/version "1.4.10"}
+        org.clojure/core.match {:mvn/version "1.0.0"}}
  :aliases
- {:run-m {:main-opts ["-m" "wtf.halt.hicdown"]}
-  :run-x {:ns-default wtf.halt.hicdown
+ {:run-m {:main-opts ["-m" "wtf.halt.hicdown.main"]}
+  :run-x {:ns-default wtf.halt.hicdown.main
           :exec-fn greet
           :exec-args {:name "Clojure"}}
   :build {:deps {io.github.seancorfield/build-clj

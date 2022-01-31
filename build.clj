@@ -4,7 +4,7 @@
 
 (def lib 'wtf.halt/hicdown)
 (def version "0.1.0-SNAPSHOT")
-(def main 'wtf.halt.hicdown)
+(def main 'wtf.halt.hicdown.main)
 
 (defn test "Run the tests." [opts]
   (bb/run-tests opts))

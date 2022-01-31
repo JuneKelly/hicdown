@@ -36,7 +36,8 @@ Parsing:
 - [x] Verbatim segments
 - [x] Better syntax for attrs?
   - [x] atom attributes?
-- [ ] Block-level attrs?
+- [ ] explicit escape nodes
+- [ ] Compile to HTML
 - [x] Document-level attributes
 - [ ] What would this lang look like without the block concept?
 - [ ] Post-process text nodes?
@@ -45,7 +46,6 @@ Parsing:
 - [ ] Look into how we can use instaparse metadata and transforms
 - [ ] Remove extra spaces from Text runs, make it consistent
 - [ ] Post-process tree to squash text down?
-- [ ] Compile to HTML
 
 
 ## Installation
