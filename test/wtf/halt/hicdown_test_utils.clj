@@ -11,7 +11,7 @@
 
 (defn parse-test-file [path]
   (-> (test-file path)
-      (hicdown/parser)))
+      (hicdown/parse)))
 
 (defn parses [path expected-data]
   (t/is (= (parse-test-file path)

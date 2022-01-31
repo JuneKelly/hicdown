@@ -7,6 +7,15 @@
 (def parser
   (insta/parser (io/resource "hicdown.bnf")))
 
+(defn transform-text [& chars]
+  [:Text (apply str chars)])
+
+(defn transform [t]
+  (insta/transform {:Text transform-text} t))
+
+(defn parse [text]
+  (transform (parser text)))
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]

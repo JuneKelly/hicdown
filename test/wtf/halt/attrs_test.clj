@@ -9,15 +9,15 @@
      "attrs/basic.hd"
      `[:Document
        [:Block
-        [:Text ~@(s "Test ")]
+        [:Text "Test "]
         [:Segment [:tag ":aa"]
          [:Attrs
           [:Pair [:key "bb"] [:val "cc"]]
           [:Pair [:key "dd"] [:val "ee"]]
           [:Atom "gg"]
           [:Atom "hh"]]
-         [:Text ~@(s "foo")]]
-        [:Text ~@(s " bar.")]]])
+         [:Text "foo"]]
+        [:Text " bar."]]])
 
     (test-parse
      "attrs/document-level-attrs.hd"
@@ -27,15 +27,15 @@
         [:Pair [:key "date"] [:Qval ~@(s "2022-01-01")]]
         [:Atom "wat"]]
        [:Block
-        [:Text ~@(s "Test one.")]]
+        [:Text "Test one."]]
        [:Block
-        [:Text ~@(s "two three.")]]])
+        [:Text "two three."]]])
 
     (test-parse
      "attrs/with-commas.hd"
      `[:Document
        [:Block
-        [:Text ~@(s "Test ")]
+        [:Text "Test "]
         [:Segment [:tag ":foo"]
          [:Attrs
           [:Pair [:key "aa"] [:val "bb"]]
@@ -43,42 +43,42 @@
           [:Atom "ee"]
           [:Atom "ff"]
           [:Pair [:key "gg"] [:val "hh"]]]
-         [:Text ~@(s "bar")]]
-        [:Text ~@(s ".")]]])
+         [:Text "bar"]]
+        [:Text "."]]])
 
     (test-parse
      "attrs/with-quoted-atom.hd"
      `[:Document
        [:Block
-        [:Text ~@(s "Test ")]
+        [:Text "Test "]
         [:Segment [:tag ":foo"]
          [:Attrs
           [:QAtom ~@(s "aa")]
           [:Atom "bb"]
           [:Pair [:key "cc"] [:val "dd"]]]
-         [:Text ~@(s "bar")]]
-        [:Text ~@(s " baz.")]]])
+         [:Text "bar"]]
+        [:Text " baz."]]])
 
     (test-parse
      "attrs/with-quoted-values.hd"
      `[:Document
        [:Block
-        [:Text ~@(s "Test ")]
+        [:Text "Test "]
         [:Segment [:tag ":aa"]
          [:Attrs
           [:Pair [:key "bb"] [:Qval ~@(s "c  c,")]]
           [:Pair [:key "dd"] [:Qval ~@(s "e}e")]]]
-         [:Text ~@(s "foo")]]
-        [:Text ~@(s " bar.")]]])
+         [:Text "foo"]]
+        [:Text " bar."]]])
 
     (test-parse
      "attrs/with-quoted-values-and-escapes.hd"
      `[:Document
        [:Block
-        [:Text ~@(s "Test ")]
+        [:Text "Test "]
         [:Segment [:tag ":aa"]
          [:Attrs
           [:Pair [:key "bb"] [:Qval ~@(s "c  c ") [:valesc "\\\""] ~@(s " z z")]]
           [:Pair [:key "dd"] [:Qval ~@(s "e}e")]]]
-         [:Text ~@(s "foo")]]
-        [:Text ~@(s " bar.")]]])))
+         [:Text "foo"]]
+        [:Text " bar."]]])))
