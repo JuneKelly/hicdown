@@ -18,6 +18,20 @@
           "%%%"]]]])
 
     (test-parse
+     "verbatim/not-segment.hd"
+     `[:Document
+       [:Block
+        [:Text
+         ~@(s "Test ")]
+        [:Segment [:tag ":a"]
+         [:Attrs [:Pair [:key ":x"] [:val "y"]]]
+         [:VerbatimText
+          "%%%"
+          ~@(s " hello [:foo {:g h} not a segment], just text. ")
+          "%%%"]]
+        [:Text ~@(s ", bar.")]]])
+
+    (test-parse
      "verbatim/code.hd"
      `[:Document
        [:Block
