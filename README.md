@@ -37,7 +37,7 @@ Parsing:
 - [x] Better syntax for attrs?
   - [x] atom attributes?
 - [ ] Block-level attrs?
-- [ ] Document-level attributes
+- [x] Document-level attributes
 - [ ] What would this lang look like without the block concept?
 - [ ] Post-process text nodes?
   - [ ] Or, should we allow the AST to be a bit messier? Then clean it up?
