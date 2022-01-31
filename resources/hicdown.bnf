@@ -20,18 +20,23 @@ nl = !dnl <#'\n'>
 Block = Content
 
 <Content> = Segment Content
-    | Text (Segment Content | Epsilon)
+    | (&'%%%' VerbatimText | !'%%%' Text) (Segment Content | Epsilon)
     | Epsilon
 
 Text = (textchar | esc)+
 
 <esc> = '\\\\' | '\\[' | '\\]' | '\\{' | '\\}' | '\\\n'
 
-<textchar> = #'[^\[\]{}]'
+<textchar> = !'\n\n' #'[^\[\]{}]'
 
 (* A segment is enclosed in square brackets, with a tag and optional attr map,
    and contains a sequence of plain text and/or other segments *)
-Segment = <'['> tag mspc Attrs? Content? <']'>
+Segment = <'['> (
+  (tag)
+  | (tag mspc Content)
+  | (tag mspc Attrs)
+  | (tag mspc Attrs mspc Content)
+) <']'>
 
 tag = #':[^\s]*'
 
@@ -48,3 +53,9 @@ val = #'[^\s}"\']+'
 Qval = <'"'> (valchar | valesc)* <'"'>
 <valchar> = #'[^"]'
 valesc = '\\"'
+
+
+(* Verbatim text *)
+VerbatimText = '%%%' NestedVerbatim '%%%'
+<NestedVerbatim> = VerbatimChar+ | ('%' NestedVerbatim '%')
+<VerbatimChar> = '\n' | #'.'

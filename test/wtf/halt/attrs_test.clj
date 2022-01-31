@@ -14,7 +14,7 @@
          [:Attrs
           [:Pair [:key ":bb"] [:val "cc"]]
           [:Pair [:key ":dd"] [:val "ee"]]]
-         [:Text ~@(s " foo")]]
+         [:Text ~@(s "foo")]]
         [:Text ~@(s " bar.")]]])
 
     (test-parse
@@ -26,7 +26,7 @@
          [:Attrs
           [:Pair [:key ":bb"] [:Qval ~@(s "c  c")]]
           [:Pair [:key ":dd"] [:Qval ~@(s "e}e")]]]
-         [:Text ~@(s " foo")]]
+         [:Text ~@(s "foo")]]
         [:Text ~@(s " bar.")]]])
 
     (test-parse
@@ -38,5 +38,5 @@
          [:Attrs
           [:Pair [:key ":bb"] [:Qval ~@(s "c  c ") [:valesc "\\\""] ~@(s " z z")]]
           [:Pair [:key ":dd"] [:Qval ~@(s "e}e")]]]
-         [:Text ~@(s " foo")]]
+         [:Text ~@(s "foo")]]
         [:Text ~@(s " bar.")]]])))

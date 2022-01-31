@@ -43,7 +43,7 @@
         [:Segment
          [:tag ":foo"]
          [:Attrs [:Pair [:key ":a"] [:val "b"]]]
-         [:Text ~@(s " bar")]]
+         [:Text ~@(s "bar")]]
         [:Text ~@(s " baz.")]]
        [:Block
         [:Text ~@(s "Test ")]

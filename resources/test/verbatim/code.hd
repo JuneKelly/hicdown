@@ -1,0 +1,9 @@
+This is some code:
+
+[:code {:language javascript} %%%
+const greet = (name) => {
+  return `Hello, ${name}.`
+}
+%%%]
+
+And this is text again.
