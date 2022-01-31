@@ -1,5 +1,6 @@
-(* A document is a sequence of blocks, separated by blank lines *)
-Document = <#'\n*'> Block (<dnl> Block)* <#'\n*'>
+(* A document is a sequence of blocks, separated by blank lines,
+   optionally preceded by an attribute list *)
+Document = <#'\n*'> (Attrs <dnl>)? Block (<dnl> Block)* <#'\n*'>
 
 (* Spaces *)
 <spc> = <#'\s'>

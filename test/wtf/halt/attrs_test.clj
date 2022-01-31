@@ -20,6 +20,18 @@
         [:Text ~@(s " bar.")]]])
 
     (test-parse
+     "attrs/document-level-attrs.hd"
+     `[:Document
+       [:Attrs
+        [:Pair [:key "author"] [:Qval ~@(s "Alice")]]
+        [:Pair [:key "date"] [:Qval ~@(s "2022-01-01")]]
+        [:Atom "wat"]]
+       [:Block
+        [:Text ~@(s "Test one.")]]
+       [:Block
+        [:Text ~@(s "two three.")]]])
+
+    (test-parse
      "attrs/with-commas.hd"
      `[:Document
        [:Block
