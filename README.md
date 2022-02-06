@@ -39,6 +39,7 @@ Rendering to html:
 
 - [x] Compile to HTML
 - [x] Document-level attributes
+- [ ] Escape content of text? ("<" and so on?)
 - [ ] Tests for html rendering
 - [ ] Native compilation with Graal?
 - [ ] What to do with document-level attrs?
