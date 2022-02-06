@@ -39,6 +39,7 @@ Rendering to html:
 
 - [x] Compile to HTML
 - [x] Document-level attributes
+- [ ] Tests for html rendering
 - [ ] What to do with document-level attrs?
 - [ ] Customize root element tag
 - [ ] More CLI options
