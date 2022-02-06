@@ -13,7 +13,7 @@ And this is another block, with a [:link {to=example.com} cool website].
 Parsing:
 
 ``` clojure
-(parser "Hello, this is [:bold some [:italic {id=foo} strong] text here].")
+(parse-string "Hello, this is [:bold some [:italic {id=foo} strong] text here].")
 ;; produces...
 [:Document 
   [:Block 
@@ -27,25 +27,27 @@ Parsing:
     [:Text "."]]]
 ```
 
+Rendering to html:
+
+``` clojure
+(render-string "Hello, this is a [:a {href=example.com} link].\n\nAnd this is another block.")
+;; produces
+"<root><div>Hello, this is a <a href=example.com>link</a>.</div><div>And this is another block.</div></root>"
+```
+
 ## TODO
 
-- [x] Proper text runs
-  - [x] Add to grammar
-  - [x] Update tests
-  - [x] Should escapes be inside or outside text runs?
-- [x] Verbatim segments
-- [x] Better syntax for attrs?
-  - [x] atom attributes?
-- [ ] explicit escape nodes
-- [ ] Compile to HTML
+- [x] Compile to HTML
 - [x] Document-level attributes
+- [ ] What to do with document-level attrs?
+- [ ] Customize root element tag
+- [ ] More CLI options
+- [ ] Cleaner node names
+- [ ] Tidy up the rendering code
+- [ ] Should verbatim drop leading newlines before text begins?
 - [ ] What would this lang look like without the block concept?
-- [ ] Post-process text nodes?
-  - [ ] Or, should we allow the AST to be a bit messier? Then clean it up?
-- [ ] Get back the segment-spanning-double-newlines behavior?
-- [ ] Look into how we can use instaparse metadata and transforms
-- [ ] Remove extra spaces from Text runs, make it consistent
-- [ ] Post-process tree to squash text down?
+- [ ] Move away from 1-1 html mapping
+  - [ ] Short-hand tags
 
 
 ## Installation
