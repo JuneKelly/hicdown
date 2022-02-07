@@ -6,12 +6,12 @@
 
 This block will be a div. This is some code:
 
-[:pre [:code {language="javascript"} %%%
+[:pre [:code {language="javascript"} ~~~
 // Some javascript
 const greet = (name) => {
   return `Hello, ${name}.`
 }
-%%%]]
+~~~]]
 
 And this is text again. Let's do some text formatting.
 This is [:b heavy], while this is [:i leaning].

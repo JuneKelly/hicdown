@@ -13,9 +13,9 @@
         [:Segment [:tag ":a"]
          [:Attrs [:Pair [:key "x"] [:val "y"]]]
          [:VerbatimText
-          "%%%"
-          ~@(s " hello ")
-          "%%%"]]]])
+          [:VerbatimBegin "~~~"]
+          ~@(s "hello")
+          [:VerbatimEnd "~~~"]]]]])
 
     (test-parse
      "verbatim/not-segment.hd"
@@ -26,9 +26,9 @@
         [:Segment [:tag ":a"]
          [:Attrs [:Pair [:key "x"] [:val "y"]]]
          [:VerbatimText
-          "%%%"
-          ~@(s " hello [:foo {g=h} not a segment], just text. ")
-          "%%%"]]
+          [:VerbatimBegin "~~~"]
+          ~@(s "hello [:foo {g=h} not a segment], just text.")
+          [:VerbatimEnd "~~~"]]]
         [:Text ~@(s ", bar.")]]])
 
     (test-parse
@@ -41,9 +41,9 @@
         [:Segment [:tag ":code"]
          [:Attrs [:Pair [:key "language"] [:val "javascript"]]]
          [:VerbatimText
-          "%%%"
-          ~@(s "\nconst greet = (name) => {\n  return `Hello, ${name}.`\n}\n")
-          "%%%"]]]
+          [:VerbatimBegin "~~~"]
+          ~@(s "const greet = (name) => {\n  return `Hello, ${name}.`\n}")
+          [:VerbatimEnd "~~~"]]]]
        [:Block
         [:Text ~@(s "And this is text again.")]]])
 
@@ -56,9 +56,9 @@
        [:Block
         [:Segment [:tag ":a"]
          [:VerbatimText
-          "%%%"
-          ~@(s "\nDo you like percent signs? %%% like these ones?\n")
-          "%%%"]]]
+          [:VerbatimBegin "~~~"]
+          ~@(s "Do you like tildes? ~~~ like these ones?")
+          [:VerbatimEnd "~~~"]]]]
        [:Block
         [:Text ~@(s "Back to text.")]]])
 
@@ -71,9 +71,9 @@
        [:Block
         [:Segment [:tag ":a"]
          [:VerbatimText
-          "%%%"
-          ~@(s "\nTest one\n\ntwo three\nfour\n\n\n\nfive.\n")
-          "%%%"]]]
+          [:VerbatimBegin "~~~"]
+          ~@(s "Test one\n\ntwo three\nfour\n\n\n\nfive.")
+          [:VerbatimEnd "~~~"]]]]
        [:Block
         [:Text ~@(s "Back to text.")]]])
 
@@ -85,7 +85,11 @@
          ~@(s "Test: ")]
         [:Segment [:tag ":a"]
          [:VerbatimText
-          "%%%"
-          ~@(s "%% hello %%")
-          "%%%"]]
+          [:VerbatimBegin "~~~"]
+          [:VerbatimNestedMark "~"]
+          [:VerbatimNestedMark "~"]
+          ~@(s "hello")
+          [:VerbatimNestedMark "~"]
+          [:VerbatimNestedMark "~"]
+          [:VerbatimEnd "~~~"]]]
         [:Text ~@(s " foo.")]]])))

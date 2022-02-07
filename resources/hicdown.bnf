@@ -21,7 +21,7 @@ nl = !dnl <#'\n'>
 Block = Content
 
 <Content> = Segment Content
-    | (&'%%%' VerbatimText | !'%%%' Text) (Segment Content | Epsilon)
+    | (&'~~~' VerbatimText | !'~~~' Text) (Segment Content | Epsilon)
     | Epsilon
 
 Text = (textchar | textesc)+
@@ -63,8 +63,10 @@ Qval = <'"'> (valchar | valesc)* <'"'>
 <valchar> = #'[^"]'
 valesc = '\\"'
 
-
 (* Verbatim text *)
-VerbatimText = '%%%' NestedVerbatim '%%%'
-<NestedVerbatim> = VerbatimChar+ | ('%' NestedVerbatim '%')
+VerbatimText = VerbatimBegin NestedVerbatim VerbatimEnd
+VerbatimBegin = '~~~'
+VerbatimEnd = '~~~'
+VerbatimNestedMark = '~'
+<NestedVerbatim> = <mspc> VerbatimChar+ <mspc> | (VerbatimNestedMark NestedVerbatim VerbatimNestedMark)
 <VerbatimChar> = '\n' | #'.'

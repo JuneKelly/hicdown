@@ -58,10 +58,8 @@
 
 (defn render-verbatim [xs]
   (apply str (->> xs
-                  (drop-while #(s/starts-with? %1 "%"))
-                  (reverse)
-                  (drop-while #(s/starts-with? %1 "%"))
-                  (reverse))))
+                  (drop-while #(vector? %1))
+                  (take-while #(not (vector? %1))))))
 
 (defn render-segment [node]
   (match node
