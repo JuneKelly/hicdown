@@ -1,6 +1,6 @@
 # hicdown
 
-A fun little parser, embedding a hiccup-like syntax in plain text.
+A fun little language, embedding a hiccup-like syntax in plain text.
 
 Example:
 
