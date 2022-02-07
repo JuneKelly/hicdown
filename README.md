@@ -83,6 +83,9 @@ Note, whitespace between the verbatim-markers and the text will be ignored.
 The following text will be included verbatim: [:span ~~~ this is [:img just text], not an image ~~~].
 ```
 
+If a block consists of just one segment, the segment is promoted to take the
+place of the block (when rendering to html at least).
+
 
 ## TODO
 
