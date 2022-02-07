@@ -113,6 +113,18 @@ Don't.
 
 Also don't. But if you must:
 
+Parse a file:
+
+``` bash
+$ clojure -M:run-m parse < examples/basic.hd
+```
+
+Render a file (to html):
+
+``` bash
+$ clojure -M:run-m render < examples/basic.hd
+```
+
 Run the project directly, via `:exec-fn`:
 
     $ clojure -X:run-x
