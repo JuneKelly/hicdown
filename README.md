@@ -35,6 +35,55 @@ Rendering to html:
 "<root><div>Hello, this is a <a href=example.com>link</a>.</div><div>And this is another block.</div></root>"
 ```
 
+## The Language
+
+Blocks are separated by blank lines:
+
+```
+This is a block.
+It is quite nice.
+
+And this is another block.
+```
+
+Segments are demarcated by square brackets, with a tag, and optional attributes and text content.
+
+```
+Consider this [:strong very heavy] text.
+
+Here is a [:a {href="example.com"} link to a cool website], that you
+might enjoy.
+```
+
+Attributes can be either key-value pairs, or single values. Values may be quoted:
+
+```
+[:h1 {id="some-heading" some-attribute} This is a heading]
+```
+
+Segments may be nested:
+
+```
+This is [:a {href="example.com"} a link to a [:strong cool] website].
+```
+
+Verbatim segments enclose text in `~~~` markers at the beginning and end of the segment:
+
+```
+Consider this nice code...
+
+[:pre [:code {language=javascript} ~~~
+const greet = (name) => {
+  return `Hello, ${name}.`
+}
+~~~]]
+
+Note, whitespace between the verbatim-markers and the text will be ignored.
+
+The following text will be included verbatim: [:span ~~~ this is [:img just text], not an image ~~~].
+```
+
+
 ## TODO
 
 - [x] Compile to HTML
