@@ -41,7 +41,7 @@
          content
          "</" name ">")))
 
-(declare render-segment render-verbatim)
+(declare render-segment verbatim-text)
 
 (defn render-node [node]
   (match node
@@ -55,7 +55,7 @@
     [:tag s] (subs s 1)
     [:Segment & _] (render-segment node)
     [:Text & r] (apply str (as-chars r))
-    [:VerbatimText & r] (render-verbatim r)
+    [:VerbatimText & r] (verbatim-text r)
     [:Block [:Segment & _]] (str "\n" (render-node (second node)) "\n")
     [:Block & r] (html-element "div" nil (apply str (map render-node r)))
     [:Document [:Attrs & _] & r] (html-element "root"
@@ -63,7 +63,7 @@
                                                (apply str (map render-node r)))
     [:Document & r] (html-element "root" nil (apply str (map render-node r)))))
 
-(defn render-verbatim [xs]
+(defn verbatim-text [xs]
   (apply str (->> xs
                   (drop-while #(vector? %1))
                   (take-while #(not (vector? %1)))
