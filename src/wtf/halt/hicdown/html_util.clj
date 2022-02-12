@@ -2,13 +2,20 @@
   (:require [clojure.core.match :refer [match]]
             [clojure.string :as s]))
 
+(defn escape-html-char [ch]
+  (match ch
+    "&" "&amp;"
+    "<" "&lt;"
+    ">" "&gt;"
+    :else ch))
+
 (defn un-escape [e]
   (subs e 1))
 
 (defn as-chars [xs]
   (map #(if (vector? %1)
           (un-escape (second %1))
-          %1)
+          (escape-html-char %1))
        xs))
 
 (def void-tags
@@ -59,7 +66,8 @@
 (defn render-verbatim [xs]
   (apply str (->> xs
                   (drop-while #(vector? %1))
-                  (take-while #(not (vector? %1))))))
+                  (take-while #(not (vector? %1)))
+                  (map #(escape-html-char %1)))))
 
 (defn render-segment [node]
   (match node
