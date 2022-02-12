@@ -91,8 +91,8 @@ place of the block (when rendering to html at least).
 
 - [x] Compile to HTML
 - [x] Document-level attributes
-- [ ] Escape content of text? ("<" and so on?)
-- [ ] Tests for html rendering
+- [x] Escape content of text? ("<" and so on?)
+- [x] Tests for html rendering
 - [ ] Native compilation with Graal?
 - [ ] What to do with document-level attrs?
 - [ ] Customize root element tag
