@@ -20,5 +20,4 @@ console.log("number is ", x)
 [:ul
   [:li One]
   [:li Two]
-  [:li [:ul
-         [:li Three]]]]
+  [:ul [:li Three]]]
