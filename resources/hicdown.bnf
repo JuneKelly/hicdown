@@ -39,7 +39,7 @@ Segment = <'['> (
   | (tag mspc Attrs mspc Content)
 ) <']'>
 
-tag = #':[^\s]*'
+tag = #':[^\s\[\]]*'
 
 (* An attribute map is enclosed in curly braces, and consists of key-value pairs or atoms *)
 Attrs = <'{'> attrspacer* <'}'>
