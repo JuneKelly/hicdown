@@ -11,10 +11,8 @@ This is an [:i example] document.
 ]
 
 [:pre [:code {language="javascript"} ~~~
-
 const x = 1;
 console.log("number is ", x)
-
 ~~~]]
 
 [:ul

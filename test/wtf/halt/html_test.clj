@@ -34,7 +34,7 @@
           "<p>This is an explicit paragraph.\n"
           "  Here is a <a href=\"example.com\">link</a> to\n"
           "  a cool website.\n</p>\n\n"
-          "<pre><code language=\"javascript\">\n"
+          "<pre><code language=\"javascript\">"
           "const x = 1;\n"
           "console.log(\"number is \", x)"
           "</code></pre>\n\n"
